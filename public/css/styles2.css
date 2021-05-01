@@ -4,85 +4,91 @@ html{
     box-sizing:border-box;
 }
 @media only screen and (max-width: 768px) {
-    #coastBody{
+    #coast-body{
         padding-top:150px;
     }   
+
+    #coast-body .lab-page {
+        display:block;
+    }
+
 }
 
 @media only screen and (max-width: 1152px) {
-    #coastBody .container{
+    #coast-body .container{
         padding-right:1rem;
         padding-left:1rem;
     }   
 }
-#coastBody{
+#coast-body{
   font-family:'Roboto',sans-serif;
   font-size:18px;
   color:#252525;
-  min-height:100vh;
+  min-height:90vh;
+  margin-top: 5.0rem;
   box-sizing:border-box;
 }
-#coastBody h1, #coastBody h2, #coastBody h3, #coastBody h4{
-    color:#209bac;
+#coast-body h1, #coast-body h2, #coast-body h3, #coast-body h4{
+    /* color:#209bac; */
     font-weight:bold;
 }
-#coastBody h2{
+#coast-body h2{
     font-size:2.2rem;
 }
-#coastBody h2.calloutHeading{
+#coast-body h2.callout-heading{
     font-size:2.8rem;
 }
-#coastBody h3{
+#coast-body h3{
     font-size:1.7rem;
 }
-#coastBody .container strong{
+#coast-body .container strong{
     color:#209bac;
 }
 
-#MainMenu .navbar-end{
+#main-menu .navbar-end{
   font-size: 1.3rem;
   color:#0059aa;
 }
-#MainMenu .navbar-end .navbar-item a.portalLogin, #topBar .portalLogin, #hero-content a.button, input.button{
+#main-menu .navbar-end .navbar-item a.portal-login, #top-bar .portal-login, #hero-content a.button, input.button{
     color:#fff;
     background-color:#0086b3;
     border-radius:5px;
 }
-#topBar .portalLogin{
+#top-bar .portal-login{
     font-size:.8rem;
     padding:3px 5px;
     margin:.4rem .3rem;
 }
-#topBar a.portalLogin:hover{
+#top-bar a.portal-login:hover{
     background-color:#fff;
     border-bottom:0;
     color:#0059aa;
 }
-#MainMenu .navbar-end .navbar-item a.portalLogin:hover, #hero-content a.button:hover, input.button:hover{
+#main-menu .navbar-end .navbar-item a.portal-login:hover, #hero-content a.button:hover, input.button:hover{
     background-color:#fff;
     border-bottom:0;
     color:#0059aa;
 }
-#MainMenu .navbar-end a{
+#main-menu .navbar-end a{
   text-decoration: none;
   text-transform:uppercase;
   color:#0059aa;
 }
-#MainMenu .navbar-end a:hover{
+#main-menu .navbar-end a:hover{
   border-bottom: 3px solid #0059aa;
   background:none;
 }
 
-#MainMenu .navbar-end .has-dropdown .navbar-dropdown a.navbar-item:hover{
+#main-menu .navbar-end .has-dropdown .navbar-dropdown a.navbar-item:hover{
     border-bottom: 1px solid #0059aa;
 }
 
-#coastBody .navbar{
+#coast-body .navbar{
     box-shadow:0 2px 7px 0 #333;
     background-color:rgba(255,255,255,0.7);
 }
 
-#coastBody .hero{
+#coast-body .hero{
     top:-1.55rem;
     box-sizing: border-box;
     height:auto;
@@ -93,7 +99,7 @@ html{
     z-index:-2;
     position:relative;
 }
-#coastBody .hero .hero-body{
+#coast-body .hero .hero-body{
     padding:0;
     position:relative;
     margin:0;
@@ -116,7 +122,7 @@ html{
     margin-bottom:-.5rem;
     box-sizing:border-box;
 }
-#coastBody .hero .hero-body .container{
+#coast-body .hero .hero-body .container{
     z-index:1;
     position:absolute;
     top:50%;
@@ -131,7 +137,7 @@ html{
     margin-top:0;
 }
 
-#coastBody .hero-body h1{
+#coast-body .hero-body h1{
   color:#fff;
   font-size:3rem;
   font-weight:bold;
@@ -151,7 +157,7 @@ html{
 }
 
 
-#coastBody footer{
+#coast-body footer{
   background-color: #042464;
   color:#fff;
   font-size: .875rem;
@@ -162,40 +168,40 @@ html{
   bottom: 0;*/
   width: 100%;
 }
-#coastBody footer a, #coastBody footer a:visited, #coastBody footer a:link{
+#coast-body footer a, #coast-body footer a:visited, #coast-body footer a:link{
   color:#fff;
   text-decoration: none;
 }
-#coastBody footer a:hover{
+#coast-body footer a:hover{
   text-decoration: underline;
 }
-#coastBody footer strong{
+#coast-body footer strong{
     color:#fff;
 }
 
-#coastBody p{
+#coast-body p{
     text-align:justify;
     margin:0 0 1.5rem 0;
 }
 
 
 /* HOMEPAGE STYLES */
-#coastBody .homeIntro .column{
+#coast-body .home-intro .column{
     padding-left:1.5rem;
     padding-right:1.5rem;
 }
-#coastBody .homepageIntro{
+#coast-body .homepage-intro{
     margin-top:3rem;
 }
 
-#coastBody h2.introHeading, #coastBody .mission h2{
+#coast-body h2.intro-heading, #coast-body .mission h2{
     color:#042464;
 }
-.introImage{
+.intro-image{
     border-radius:14px;
     box-shadow:0 0 10px 0 #333 inset;
 }
-.homeCerts{
+.home-certs{
     margin-top:3rem;
 }
 .triangle {
@@ -218,17 +224,17 @@ html{
   left: 50%;
   transform: translateX(-50%) translateY(100%);
 }
-#coastBody .triangle h2.triangle, #coastBody .QIA h2{
+#coast-body .triangle h2.triangle, #coast-body .QIA h2{
     color:#fff;
     text-transform:uppercase;
     width:100%;
     text-align:center;
     padding:1rem 0;
 }
-#coastBody .QIA h2{
+#coast-body .QIA h2{
     background-color:rgba(0,0,0,0.35);
 }
-#coastBody .QIA{
+#coast-body .QIA{
     background-image:url('../../assets/images/instant-quick-accurate.jpg');
     background-size:cover;
     background-position:top center;
@@ -237,34 +243,34 @@ html{
     margin-top:3rem;
     padding-top:calc(184px - 1.1rem);
 }
-#coastBody .mission{
+#coast-body .mission{
     margin:3rem auto;
 }
 
 
 /* ABOUT US STYLES */
-#aboutTriangle1{
+#about-triangle1{
     margin-top:0;
     position:relative;
     top:-1.55rem;
     background-color:#0086b3;
 }
-#aboutTriangle2, #aboutTriangle3{
+#about-triangle2, #about-triangle3{
     background-color:#209bac;
 }
-#aboutTriangle1 h2.triangle, #aboutTriangle2 h2.triangle, #aboutTriangle3 h2.triangle{
+#about-triangle1 h2.triangle, #about-triangle2 h2.triangle, #about-triangle3 h2.triangle{
     margin:0;
     background:none;
 }
 
-#aboutTriangle2 .triangle::before, #aboutTriangle3 .triangle::before{
+#about-triangle2 .triangle::before, #about-triangle3 .triangle::before{
     border-color:#209bac transparent transparent transparent;   
 }
-#aboutTriangle3{
+#about-triangle3{
     margin-top:4rem;
 }
 
-section.aboutContent{
+section.about-content{
     margin:0;
     padding-bottom:4rem;
     background-image:url('../../assets/images/coastO.png');
@@ -272,7 +278,7 @@ section.aboutContent{
     background-repeat:no-repeat;
     background-size:contain;
 }
-section.ourTeam{
+section.our-team{
     margin-top:1rem;
     padding-top:0rem;
     box-sizing:border-box;
@@ -317,19 +323,19 @@ section.ourTeam{
 }
 
 /* NEWS STYLES */
-#coastBody .newsListing article, #news article{
+#coast-body .news-listing article, #news article{
     border-bottom:1px solid #ccc;
     margin-bottom:3rem;
     padding-bottom:1.5rem;
     box-sizing:border-box;
 }
-#coastBody .newsListing article .newsFeatureImg{
+#coast-body .news-listing article .news-feature-img{
     width:100%;
 }
-#coastBody .newsListing article .postSummary{
+#coast-body .news-listing article .post-summary{
     font-size:.9rem;
 }
-#coastBody .newsListing article .postTitle{
+#coast-body .news-listing article .postTitle{
     color:#042464;
     font-size:1.4rem;
 }
@@ -342,79 +348,78 @@ a.readmore{
     background-color:#0086b3;
     color:#fff;
 }
-.newsFeatureImg{
+.news-feature-img{
     border-radius:7px;
 }
 
 /* LAB SERVICES STYLES */
-#serviceTriangle1{
+#service-triangle1{
     margin-bottom:50px;
     margin-top: 0;
     position: relative;
     top: -1.55rem;
     background-color: #0086b3;
 }
-#serviceTriangle1 h2.triangle{
+#service-triangle1 h2.triangle{
     margin:0;
 }
 .lab-service:first-of-type{
     padding-top:0;
 }
 .lab-service{
-    /* padding-top:calc(80px + 2.25rem); */
+    /* padding-bottom:calc(80px + 2.25rem); */
     border-bottom:3px solid #00aeef;
     padding-bottom:1rem;
-    /*dane edit*/
     min-height: 10rem;
 }
 
 
 /* CONTACT STYLES */
-.contactUs h3{
+.contact-us h3{
     color:#209bac;
 }
-section.contactUs .contactContainer .contactForm{
+section.contact-us .contact-container .contact-form{
     margin-right:2rem; 
     background-color:#efefef;
 }
-section.contactUs .contactContainer .locationColumn{
+section.contact-us .contact-container .contact-column{
     margin-left:2rem;
     padding-top:0;
 }
-.ourOffice{
+.our-office{
     display:flex;
     flex-direction:column;
 }
-.ourOffice h3, .ourOffice span, .ourOffice iframe{
+.our-office h3, .our-office span, .our-office iframe{
     flex:1;
 }
-.ourOffice iframe{
+.our-office iframe{
     display:flex;
     flex-direction:column;
     padding-top:2rem;
     min-height:450px;
     width:100%;
 }
-section.contactUs .contactForm {
+section.contact-us .contact-form {
     padding:3rem;
 }
 
-section.contactUs .contactContainer .contactForm form .columns{
+section.contact-us .contact-container .contact-form form .columns{
     margin-bottom:0;
     padding-bottom:0;
 }
-section.contactUs .contactContainer .contactForm form .columns .column{
+section.contact-us .contact-container .contact-form form .columns .column{
     margin-bottom:0;
     padding-bottom:0;
 }
 
-#coastBody .contactForm .field{
+#coast-body .contact-form .field{
     margin-bottom:1.5rem;
 }
-#coastBody .contactForm .field input{
+#coast-body .contact-form .field input{
     color:#0059aa;    
 }
-#coastBody .contactForm .button.is-link{
+#coast-body .contact-form .button.is-link{
     background-color:#209bac;
     color:#fff;
     padding-right:4rem;
@@ -423,7 +428,7 @@ section.contactUs .contactContainer .contactForm form .columns .column{
 
 
 /* TEST DIRECTORY STYLES */
-#testGrid{
+#test-grid{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -431,24 +436,24 @@ section.contactUs .contactContainer .contactForm form .columns .column{
     justify-content:center;
     margin-top:2rem;
 }
-#testGrid .card{
+#test-grid .card{
     min-width:300px;
     max-width:400px;
     margin:0 1rem 2.5rem 1rem;
 }
-.labTesting h2{
+.lab-testing h2{
     text-align:center;
 }
-#coastBody .labTesting{
+#coast-body .lab-testing{
     margin-top:1rem;
     padding-top:0;
 }
-#coastBody .labTesting .card-content a.button{
+#coast-body .lab-testing .card-content a.button{
     color:#fff;
     font-weight:bold;
     background-color:#0086b3;
 }
-.labTesting .testCard .card-content .card-footer{
+.lab-testing .testCard .card-content .card-footer{
     border-top:1px solid #0f3d8b;
     border-bottom:1px solid #0f3d8b;
     justify-content:center;
@@ -456,17 +461,17 @@ section.contactUs .contactContainer .contactForm form .columns .column{
 }
 
 /* TEST PAGE STYLES */
-.testInfo .card{
+.test-info .card{
     width:100%;
 }
-.testInfo .card .card-content .content{
+.test-info .card .card-content .content{
     padding:0 4rem 0 4rem;
 }
-.testInfo .card .card-footer{
+.test-info .card .card-footer{
     justify-content:center;
     padding:4rem;
 }
-.testInfo .card-content a.button{
+.test-info .card-content a.button{
     color:#fff;
     font-weight:bold;
     background-color:#042464;
@@ -482,45 +487,53 @@ section.contactUs .contactContainer .contactForm form .columns .column{
     float:left;
     padding:0 1rem 0 0;
 }
-.testInfo .container .card .column{
+.test-info .container .card .column{
     text-align:left;
 }
-#coastBody .testInfo .container .card .column h3{
+#coast-body .test-info .container .card .column h3{
     text-align:right;
     font-weight:500;
     font-size:1.5rem;
 }
-#coastBody .testInfo .container .card h2{
+#coast-body .test-info .container .card h2{
     color:#0f3d8b;
 }
 
-#coastBody .testInfo .container .card hr{
+#coast-body .test-info .container .card hr{
     background-color:#ccc;
 }
-#coastBody .testInfo .container .card ul{
+#coast-body .test-info .container .card ul{
     margin-left:0;
     list-style:disc inside;
 }
-#coastBody .testInfo .container .card ul li{
+#coast-body .test-info .container .card ul li{
     margin-left:0;
 }
-/* #coastBody .labPage{
-
+#coast-body .lab-page{
+    display:flex;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+/* .lab-page img {
+    margin: 2.5rem 1 2rem 1;
 } */
-.labPageIntro{
+.lab-page-intro{
     display:block;
     clear:both;
-    margin:0 0 2rem 0;
+    margin:2rem 2rem 2rem 2rem;
 }
-#coastBody .lab-service img{
+
+#coast-body .lab-service img{
     float:right;
     max-width:25%;
     height:auto;
-    margin:0 0 1rem 1rem;
+    margin:1rem 1rem 0rem 1rem;
     position:relative;
     box-shadow:3px 3px 5px 1px #aaa;
+    min-width: 246px;
+    max-height: 216px;
 }
-#coastBody .lab-service .labTestList{
+#coast-body .lab-service .lab-testList{
     display:block;
     margin:2rem 0 2rem 0;
     box-sizing:border-box;
@@ -528,13 +541,13 @@ section.contactUs .contactContainer .contactForm form .columns .column{
     clear:both;
     border-top:1px solid #aaa;
 }
-#coastBody .lab-service .labTestList ul{
+#coast-body .lab-service .lab-testList ul{
     list-style:disc inside none;
 }
 
 
 
-#topBar{
+#top-bar{
     background-color:#042464;
     color:#fff;
     font-size:.8rem;
@@ -543,14 +556,22 @@ section.contactUs .contactContainer .contactForm form .columns .column{
     padding:.25rem;
     box-sizing:border-box;
 }
-#topBar a, #topBar a:hover, #topBar a:visited{
+#top-bar a, #top-bar a:hover, #top-bar a:visited{
     color:#fff;
 }
-.memberBio{
+.member-bio{
     margin-bottom:3rem;
     padding:3rem 0;
     border-bottom:1px solid #ccc;
 }
-.memberBio .column img{
+.member-bio .column img{
     max-width:250px;
+}
+
+@media only screen and (max-width: 768px) {
+    #coast-body .lab-page {
+        flex-wrap: wrap;
+        word-wrap: break-word;
+    }
+
 }
