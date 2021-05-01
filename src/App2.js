@@ -11,14 +11,42 @@ import CareersPage from './pages/Careers';
 import HomePage from './pages/Home';
 import './App2.css';
 import Hero from './components/Hero/Hero';
+import SideDrawer from './components/SideDrawer/SideDrawer'
+import Backdrop from './components/Backdrop/Backdrop'
 
 
 class App2 extends React.Component {
+  state = {
+    sideDrawerOpen: false
+  };
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
+  };
+
+  backdropClickHandler = () => {
+    // can add more functionality here
+    this.setState({sideDrawerOpen: false});
+  };
+
   render() {
+    let sideDrawer;
+    let backdrop;
+    console.log(this.state.sideDrawerOpen)
+
+    if (this.state.sideDrawerOpen) {
+      sideDrawer= <SideDrawer />;
+      backdrop = <Backdrop click={this.backdropClickHandler}/>
+    }
+
     return (
+        <div style={{height: "100%"}}>
           <BrowserRouter>
             <React.Fragment>
-              <MainNavigation />
+              <MainNavigation drawerClickHandler={this.drawerToggleClickHandler} />
+              {sideDrawer}
+              {backdrop}
               <div className="coast-body">
                   <div id="coast-body">
                       <Hero />
@@ -34,8 +62,8 @@ class App2 extends React.Component {
               
               </div>
             </React.Fragment>
-            
           </BrowserRouter>
+        </div>
     );
   }
 }
