@@ -7,3 +7,50 @@ body {
   font-family: sans-serif;
   height: 100%;
 }
+/* *, *::before, *::after {
+  box-sizing: inherit;
+} */
+img {
+  height: auto;
+  max-width: 100%
+}
+
+.form-control label,
+.form-control input,
+.form-control textarea {
+    width: 100%;
+    display: block;
+}
+
+.form-control label{
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+.form-actions button,
+.btn {
+    background: rgb(0, 102, 255);
+    font: inherit;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 3px;
+    padding: 0.25rem 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.26);
+    color: white;
+    cursor: pointer;
+}
+
+.form-actions button:hover,
+.form-actions button:active,
+.btn:hover,
+.btn:active {
+    background-color:  rgb(0, 78, 194);
+    border-color: rgb(0, 78, 194);;
+}
+.form-actions button:active {
+        color: orangered;
+}

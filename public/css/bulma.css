@@ -272,9 +272,10 @@ html {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+/* Dane edit */
+/* *, *::before, *::after {
   box-sizing: inherit;
-}
+} */
 
 img,
 video {
@@ -7040,6 +7041,7 @@ label.panel-block:hover {
 .columns.is-mobile > .column.is-half {
   flex: none;
   width: 50%;
+ 
 }
 
 .columns.is-mobile > .column.is-one-third {

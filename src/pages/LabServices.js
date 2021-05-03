@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-
+import Hero from '../components/Hero/Hero';
+import TestsPage from './Tests'
 class LabServicesPage extends Component {
+
+
+    // console.log(this.state.thisPage
     render() {
         return(
+            
             <React.Fragment>
-                
+              <Hero currentPage={this.props.location}/>
                 <main role="main">
-                    <div style={{marginBottom:"4rem"}}><h1>INSERT TEST DIRECTORY SEARCH HERE</h1></div>
+                    <div style={{marginBottom:"4rem"}}><TestsPage /></div>
                 
                     <div className="triangle" id="serviceTriangle1">
                         <h2 className="triangle">Lab Services</h2>
@@ -66,7 +71,7 @@ class LabServicesPage extends Component {
                                     <h2>Coagulation</h2>
                                     <p>Coagulation testing is used to check the function of one or more of your coagulation factors. </p>
                                     </div>  
-                                        <img src="./assets/coagulation.jpg" alt="Coagulation" />            
+                                        <img src="./assets/coagulation.jpg" s alt="Coagulation" />            
                                 </div>
                                 {/* <div className="labTestList">
                                     <ul>

@@ -1,0 +1,24 @@
+.tests__list-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid rgb(0, 102, 255);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tests__list-item h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: rgb(0, 102, 255);
+}
+
+.tests__list-item h2 {
+    margin: 0;
+    font-size: 1rem;
+    color: rgb(124,124,124);
+}
+.tests__list-item p {
+    margin: 0;
+}

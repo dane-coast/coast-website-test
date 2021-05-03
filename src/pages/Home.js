@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Hero from '../components/Hero/Hero';
 
 class HomePage extends Component {
     render() {
         return(
             <React.Fragment>
+                <Hero currentPage={this.props.location}/>
                   <h1>The Home Page</h1>
                   <main role="main">
                     <section className="homeIntro">
@@ -25,7 +27,7 @@ class HomePage extends Component {
                                 <div className="column is-half" style={{textAlign:"right"}}>
                                     <img src="./assets/clia.jpg" alt="CLIA Certified" />
                                 </div>
-                                <div className="column">
+                                <div className="column" style={{textAlign:"center"}}>
                                     <img src="./assets/cola.jpg" alt="COLA Accredited" />
                                 </div>
                             </div>

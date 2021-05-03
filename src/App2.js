@@ -9,8 +9,10 @@ import LabServicesPage from './pages/LabServices';
 import NewsPage from './pages/News';
 import CareersPage from './pages/Careers';
 import HomePage from './pages/Home';
+import AuthPage from './pages/Auth';
+
 import './App2.css';
-import Hero from './components/Hero/Hero';
+// import Hero from './components/Hero/Hero';
 import SideDrawer from './components/SideDrawer/SideDrawer'
 import Backdrop from './components/Backdrop/Backdrop'
 
@@ -31,12 +33,12 @@ class App2 extends React.Component {
   };
 
   render() {
-    let sideDrawer;
+    // let sideDrawer;
     let backdrop;
     console.log(this.state.sideDrawerOpen)
 
     if (this.state.sideDrawerOpen) {
-      sideDrawer= <SideDrawer />;
+      // sideDrawer= <SideDrawer />;
       backdrop = <Backdrop click={this.backdropClickHandler}/>
     }
 
@@ -45,11 +47,11 @@ class App2 extends React.Component {
           <BrowserRouter>
             <React.Fragment>
               <MainNavigation drawerClickHandler={this.drawerToggleClickHandler} />
-              {sideDrawer}
+              <SideDrawer show={this.state.sideDrawerOpen} />
               {backdrop}
               <div className="coast-body">
                   <div id="coast-body">
-                      <Hero />
+                      {/* <Hero /> */}
                         <Switch>
                             <Route path="/" component={HomePage} exact/>
                             <Route path="/about-us" component={AboutUsPage} />
@@ -57,6 +59,7 @@ class App2 extends React.Component {
                             <Route path="/contact" component={ContactPage} />
                             <Route path="/lab-services" component={LabServicesPage} />
                             <Route path="/news" component={NewsPage} />
+                            <Route path="/login" component={AuthPage} />
                         </Switch>
                   </div>
               

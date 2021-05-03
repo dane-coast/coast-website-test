@@ -8,7 +8,7 @@ import './MainNavigation.css';
 const MainNavigation = props => (
     <header >
         <nav className="main-navigation">
-            <div>
+            <div className="main-navigation__toggle-button">
                 <DrawerToggleButton click={props.drawerClickHandler} />
             </div>
             <div className="main-navigation__logo">
@@ -31,6 +31,9 @@ const MainNavigation = props => (
                     </li>
                     <li>
                         <NavLink to="/careers">Careers</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/login">Login</NavLink>
                     </li>
                 </ul>
             </div>     
