@@ -67,20 +67,20 @@ html{
 #main-menu .navbar-end .navbar-item a.portal-login:hover, #hero-content a.button:hover, input.button:hover{
     background-color:#fff;
     border-bottom:0;
-    color:#0059aa;
+    color:#0086b3;
 }
 #main-menu .navbar-end a{
   text-decoration: none;
   text-transform:uppercase;
-  color:#0059aa;
+  color:#0086b3;
 }
 #main-menu .navbar-end a:hover{
-  border-bottom: 3px solid #0059aa;
+  border-bottom: 3px solid #0086b3;
   background:none;
 }
 
 #main-menu .navbar-end .has-dropdown .navbar-dropdown a.navbar-item:hover{
-    border-bottom: 1px solid #0059aa;
+    border-bottom: 1px solid #0086b3;
 }
 
 #coast-body .navbar{
@@ -238,10 +238,11 @@ html{
     background-image:url('../../assets/images/instant-quick-accurate.jpg');
     background-size:cover;
     background-position:top center;
-    height:369px;
+    /* height:369px; */
     width:100%;
-    margin-top:3rem;
-    padding-top:calc(184px - 1.1rem);
+    margin-top:1rem;
+    /* padding-top:calc(184px - 3.1rem); */
+    padding-top: 1rem;
 }
 #coast-body .mission{
     margin:3rem auto;

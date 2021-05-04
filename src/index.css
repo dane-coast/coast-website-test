@@ -32,9 +32,9 @@ img {
 
 .form-actions button,
 .btn {
-    background: rgb(0, 102, 255);
+    background: #0086b3;
     font: inherit;
-    border: 1px solid rgb(0, 102, 255);
+    border: 1px solid #0086b3;
     border-radius: 3px;
     padding: 0.25rem 1rem;
     margin-right: 1rem;

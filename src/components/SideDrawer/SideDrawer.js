@@ -32,6 +32,7 @@ const SideDrawer = (props) => {
                 <li>
                         <NavLink to="/login">Login</NavLink>
                 </li>
+                <li className="spacer"></li>
             </ul>
         </nav>
     )
