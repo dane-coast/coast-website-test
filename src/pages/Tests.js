@@ -4,7 +4,6 @@ import Modal from '../components/Modal/Modal';
 import Backdrop from '../components/Backdrop/Backdrop';
 import AuthContext from '../context/auth-context';
 
-import TestList from '../components/Tests/TestList/TestList';
 import Spinner from '../components/Spinner/Spinner';
 
 
