@@ -14,7 +14,8 @@ class TestsPage extends Component {
     state = {
         searching: false,
         tests: [],
-        isLoading: false
+        isLoading: false,
+        showModal: false
     };
 
     static contextType = AuthContext;
@@ -33,6 +34,7 @@ class TestsPage extends Component {
 
     startSearchTestHandler = () => {
         this.setState({searching: true});
+        this.setState({showModal:true});
         const searchThis = this.searchThisElRef.current.value;
         this.modalCancelHandler(searchThis)
     }
@@ -126,16 +128,24 @@ class TestsPage extends Component {
     }
 
     render() {
+        let modalStyles
+        if (this.state.showModal) {
+            modalStyles = 'modal show'
+        } else {
+            modalStyles = 'modal'
+        }
+
         return(
             <React.Fragment>
-                {this.state.searching && <Backdrop />}
-                <Modal title="Tests Found" onCancel={this.modalCancelHandler} onConfirm={this.modalConfirmHandler}>
+                {this.state.showModal && <Backdrop />}
+                {/* {this.state.showModal && <Modal title="Tests Found" onCancel={this.modalCancelHandler} onConfirm={this.modalConfirmHandler}>
                     <TestList 
                         tests={this.state.tests}
                         // authUserId={this.context.userId}
                     />
-                </Modal>
+                </Modal>} */}
                 <div className="events-control">
+                    <Modal title="Tests Found" classes={modalStyles} tests={this.state.tests} />
                     <form>
                         <div className="form-control">
                             <input type="text" id="searchThis" ref={this.searchThisElRef} placeholder="Search"></input>

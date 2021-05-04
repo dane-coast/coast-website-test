@@ -5,7 +5,7 @@ import './TestList.css'
 
 const testList = props => {
     const tests = props.tests.map(test => {
-        // console.log(test)
+        console.log(test)
         return (
             <TestItem 
                 key={test._id} 

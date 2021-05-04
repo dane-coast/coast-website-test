@@ -11,7 +11,7 @@ class LabServicesPage extends Component {
             <React.Fragment>
               <Hero currentPage={this.props.location}/>
                 <main role="main">
-                    <div style={{marginBottom:"4rem"}}><TestsPage /></div>
+                    <div style={{marginTop:"4rem", display: "block"}}><TestsPage /></div>
                 
                     <div className="triangle" id="serviceTriangle1">
                         <h2 className="triangle">Lab Services</h2>

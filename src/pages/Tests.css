@@ -4,6 +4,8 @@
     padding: 1rem;
     margin: 2rem auto;
     width: 30rem;
-    max-width: 80%
+    max-width: 80%;
+    z-index: 300;
+    display:block;
 }
 
