@@ -1,4 +1,4 @@
-.modal {
+/* .modal {
     width: 30rem;
     max-width: 90%;
     background: white;
@@ -6,11 +6,11 @@
     position: fixed;
     top: 20.5vh;
     left: 15%;
-    z-index: 250;
+    z-index: 250; */
     /* display:table; */
-}
+/* } */
 
-.modal__header {
+/* .modal__header {
     padding: 1rem;
     background: #0086b3;
     color: white;
@@ -40,4 +40,4 @@
     width: 50rem;
     left: calc(100% - 30rem) / 2;
 }
-}
+} */

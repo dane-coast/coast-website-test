@@ -1,23 +1,154 @@
 import React, { Component } from 'react';
 import Hero from '../components/Hero/Hero';
-import TestsPage from './Tests'
-class LabServicesPage extends Component {
 
+// import TestsPage from './Tests'
+import  ModalTests from '../components/Modal/ModalTests';
+import Backdrop from '../components/Backdrop/Backdrop';
+import './LabServices.css'
+
+class LabServicesPage extends Component {
+    state = {
+        searching: false,
+        tests: [],
+        isLoading: false,
+    };
+
+    constructor(props) {
+        super(props);
+        this.titleElRef = React.createRef();
+
+        this.searchThisElRef = React.createRef();
+    }
+
+    startSearchingTestHandler = (e) => {
+        e.preventDefault();
+        console.log(e)
+        this.setState({searching: true});
+        const searchFor = this.searchThisElRef.current.value;
+
+        if (searchFor.trim().length === 0) {
+            return
+        }
+        console.log(searchFor)
+        const requestBody = {
+            query: `
+            query {
+                searchTests(filter: {description: {contains: "${searchFor}"}
+              })
+            {
+              _id
+              title
+              description
+              AKA
+              CPT
+            }
+            }
+                `
+        };
+        fetch('http://localhost:8000/graphql', {
+            method: 'POST',
+            body: JSON.stringify(requestBody),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(res => {
+            if (res.status !== 200 && res.status !==21) {
+                throw new Error('Failed')
+            }
+            return res.json();
+        })
+        .then(resData => {
+            console.log('resData')
+            console.log(resData);
+            const tests = resData.data.searchTests
+            this.setState({tests: tests, isLoading: false})
+            // this.fetchTests();
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+    }
+
+    // this function will find all tests.
+    fetchTests() {
+        this.setState({isLoading: true});
+        const requestBody = {
+            query: `
+                query {
+                    tests {
+                        _id
+                        title
+                        description
+                        CPT
+                        AKA
+                    }
+                }
+            `
+        };
+        
+        // use fetch to send data -> could also use axios or other
+        fetch('http://localhost:8000/graphql', {
+            method: 'POST',
+            body: JSON.stringify(requestBody),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => {
+            if (res.status !== 200 && res.status !==21) {
+                throw new Error('Failed')
+            }
+            return res.json();
+        })
+        .then(resData => {
+            console.log(resData);
+            const tests = resData.data.tests
+            this.setState({tests: tests, isLoading: false });
+        })
+        .catch(err => {
+            console.log(err)
+            this.setState({isLoading: false});
+        })
+
+    }
+
+
+    testModalCancelHandler = () => {
+        this.setState({searching: false})
+    }
+
+
+    
 
     // console.log(this.state.thisPage
     render() {
         return(
             
             <React.Fragment>
+                {this.state.searching && <Backdrop />}
               <Hero currentPage={this.props.location}/>
                 <main role="main">
-                    <div style={{marginTop:"-2.0rem", display: "block"}}><TestsPage /></div>
+                <div className="events-control">
+                    {/* <Modal title="Tests Found" classes={modalStyles} tests={this.state.tests} /> */}
+                    <form onSubmit={this.startSearchingTestHandler}>
+                        <div className="form-control">
+                            <input type="text" id="searchThis" ref={this.searchThisElRef} placeholder="Search"></input>
+                        </div>
+                        <button type="submit" className="btn" >Search For Test</button>
+                    </form>
+                </div>
+                    
+                    {/* <div style={{marginTop:"-2.0rem", display: "block"}}><TestsPage /></div> */}
                 
                     <div className="triangle" id="serviceTriangle1">
                         <h2 className="triangle">Lab Services</h2>
                     </div>
                     <section id="labServices">
                         <div className="container">
+                        {this.state.searching && <ModalTests title="lab tests" onCancel={this.testModalCancelHandler} tests={this.state.tests}>
+                        </ModalTests>}
                             <div className="lab-service" id="5507" style={{textAlign:"left"}}>
                                 <h2>COVID-19</h2>
                                 <div className="labPage">

@@ -35,7 +35,7 @@ class App2 extends React.Component {
   render() {
     // let sideDrawer;
     let backdrop;
-    console.log(this.state.sideDrawerOpen)
+    // console.log(this.state.sideDrawerOpen)
 
     if (this.state.sideDrawerOpen) {
       // sideDrawer= <SideDrawer />;

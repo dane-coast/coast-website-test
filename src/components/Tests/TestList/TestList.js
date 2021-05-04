@@ -8,7 +8,7 @@ const testList = props => {
         console.log(test)
         return (
             <TestItem 
-                key={test._id} 
+                // key={test._id} 
                 testId={test._id} 
                 title={test.title}
                 CPT={test.CPT}

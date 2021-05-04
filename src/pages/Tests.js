@@ -145,7 +145,7 @@ class TestsPage extends Component {
                     />
                 </Modal>} */}
                 <div className="events-control">
-                    <Modal title="Tests Found" classes={modalStyles} tests={this.state.tests} />
+                    {/* <Modal title="Tests Found" classes={modalStyles} tests={this.state.tests} /> */}
                     <form>
                         <div className="form-control">
                             <input type="text" id="searchThis" ref={this.searchThisElRef} placeholder="Search"></input>
