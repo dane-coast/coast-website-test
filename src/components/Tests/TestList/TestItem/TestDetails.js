@@ -20,7 +20,7 @@ const testDetails = props => {
         let final = []
         let x = 0;
         tempArray.forEach(key => {
-            final.push(`${key}: ${objectKeys[x]}`)
+            final.push(`<strong>${key}</strong>: ${objectKeys[x]}`)
             x += 1
         })
         console.log(tempArray)

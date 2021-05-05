@@ -45,7 +45,7 @@ class LabServicesPage extends Component {
             }
                 `
         };
-        fetch('http://localhost:8000/graphql', {
+        fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: {
@@ -89,7 +89,7 @@ class LabServicesPage extends Component {
         };
         
         // use fetch to send data -> could also use axios or other
-        fetch('http://localhost:8000/graphql', {
+        fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: {
