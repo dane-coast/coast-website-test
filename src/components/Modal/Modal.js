@@ -11,9 +11,9 @@ const modal = props => (
             {console.log({props})}
             <TestDetails test={props.test} />
         </section>
-        <section className="modal__actions">
+        {/* <section className="modal__actions">
             <button className="btn" onClick={props.onCancel}>Close</button>
-        </section>
+        </section> */}
     </div>
 );
 

@@ -5,11 +5,12 @@
     background: white;
     border: 1px solid #0086b3;
     box-shadow: 0 2px 8px rgba(0,0,0,0.26);
-    position: fixed;
-    top: 20vh;
+    position: absolute;
+    top: -25vh;
     margin: auto;
     /* left:1rem; */
     z-index: 110;
+    /* overflow: scroll; */
 }   
 .modal__header {
     padding: 1rem;

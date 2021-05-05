@@ -122,7 +122,10 @@ class LabServicesPage extends Component {
         this.setState({searching: false})
     }
 
-
+    backdropClickHandler = () => {
+        // can add more functionality here
+        this.setState({searching: false});
+      };
     
 
     // console.log(this.state.thisPage
@@ -130,7 +133,7 @@ class LabServicesPage extends Component {
         return(
             
             <React.Fragment>
-                {this.state.searching && <Backdrop />}
+                {this.state.searching && <Backdrop  click={this.backdropClickHandler}/>}
               <Hero currentPage={this.props.location}/>
                 <main role="main">
                 <div className="events-control">
@@ -150,8 +153,11 @@ class LabServicesPage extends Component {
                     </div>
                     <section id="labServices">
                         <div className="container">
-                        {this.state.searching && <ModalTests title="lab tests" onCancel={this.testModalCancelHandler} tests={this.state.tests}>
-                        </ModalTests>}
+                            <div className='center'>
+                                {this.state.searching && <ModalTests title="lab tests" onCancel={this.testModalCancelHandler} tests={this.state.tests}>
+                                    </ModalTests>}
+                                
+                            </div>
                             <div className="lab-service" id="5507" style={{textAlign:"left"}}>
                                 <h2>COVID-19</h2>
                                 <div className="labPage">

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-
+import './css/styles2.css';
+import './css/bulma.css';
+import './css/font.css';
 import MainNavigation from './components/Navigation/MainNavigation';
 
 import AboutUsPage from './pages/AboutUs';
