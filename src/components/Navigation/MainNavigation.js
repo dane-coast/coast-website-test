@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../../assets/CoastDiagnosticsLogo.png';
 
 
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
@@ -12,7 +13,7 @@ const MainNavigation = props => (
                 <DrawerToggleButton click={props.drawerClickHandler} />
             </div>
             <div className="main-navigation__logo">
-                <NavLink exact to="/"><img src="./assets/CoastDiagnosticsLogo.png" alt="Coast Diagnostics" style={{maxHeight: "45px" ,maxWidth: "300px"}} /></NavLink>    
+                <NavLink exact to="/"><img src={logo} alt="Coast Diagnostics" style={{maxHeight: "45px" ,maxWidth: "300px"}} /></NavLink>    
             </div>
             <div className="spacer" />
             <div className="main-navigation__items">

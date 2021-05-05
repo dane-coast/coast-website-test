@@ -53,6 +53,7 @@ class App2 extends React.Component {
                   <div id="coast-body">
                       {/* <Hero /> */}
                         <Switch>
+                            <Redirect from='/coast-website-test/' to='/' />
                             <Route path="/" component={HomePage} exact/>
                             <Route path="/about-us" component={AboutUsPage} />
                             <Route path="/careers" component={CareersPage} />

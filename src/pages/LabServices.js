@@ -5,6 +5,9 @@ import Hero from '../components/Hero/Hero';
 import  ModalTests from '../components/Modal/ModalTests';
 import Backdrop from '../components/Backdrop/Backdrop';
 import './LabServices.css'
+import coag from "../assets/coagulation.jpg";
+import chem from "../assets/chemistry.jpg";
+import drugScreen from '../assets/urinalysis-drugscreening.jpg';
 
 class LabServicesPage extends Component {
     state = {
@@ -22,14 +25,14 @@ class LabServicesPage extends Component {
 
     startSearchingTestHandler = (e) => {
         e.preventDefault();
-        console.log(e)
+        // console.log(e)
         this.setState({searching: true});
         const searchFor = this.searchThisElRef.current.value;
 
         if (searchFor.trim().length === 0) {
             return
         }
-        console.log(searchFor)
+        // console.log(searchFor)
         const requestBody = {
             query: `
             query {
@@ -202,7 +205,7 @@ class LabServicesPage extends Component {
                                     <h2>Coagulation</h2>
                                     <p>Coagulation testing is used to check the function of one or more of your coagulation factors. </p>
                                     </div>  
-                                        <img src="./assets/coagulation.jpg" s alt="Coagulation" />            
+                                        <img src={coag} s alt="Coagulation" />            
                                 </div>
                                 {/* <div className="labTestList">
                                     <ul>
@@ -229,7 +232,7 @@ class LabServicesPage extends Component {
                                             Blood chemistry tests or panels are groups of tests that measure many chemicals in a sample of blood. They show how well certain organs are working and can help find abnormalities. There are many types of blood chemistry tests. They measure chemicals including enzymes, electrolytes, fats (lipids), hormones, sugars, proteins, vitamins and minerals. Coast Diagnostics performs many chemistry tests and reports these back to your doctor within a few hours of receiving the samples. 
                                         </p>
                                     </div>
-                                    <img src="./assets/chemistry.jpg" alt="Chemistry" />
+                                    <img src={chem} alt="Chemistry" />
                                 </div>
                                 {/* <div className="labTestList">
                                     <ul>
@@ -348,7 +351,7 @@ class LabServicesPage extends Component {
                                             Urinalysis is a test of your urine. It is used to detect and manage a wide range of disorders, such as urinary tract infections, kidney disease and diabetes. An abnormal urinalysis result may point to a disease or illness. Urine Drug Screening is testing for drugs and metabolites in urine to determine if the patient is taking any drugs, legal or illegal. 
                                         </p>
                                     </div>
-                                    <img src="./assets/urinalysis-drugscreening.jpg" alt="Urinalysis / Urine Drug Screen" />
+                                    <img src={drugScreen} alt="Urinalysis / Urine Drug Screen" />
                                 </div>
                                 {/* <div className="labTestList">
                                     <ul>

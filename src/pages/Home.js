@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Hero from '../components/Hero/Hero';
+import clia from '../assets/clia.jpg';
+import cola from '../assets/cola.jpg';
+import testingInAction from '../assets/testingInAction.jpg';
+
 
 class HomePage extends Component {
     render() {
@@ -16,7 +20,7 @@ class HomePage extends Component {
                                     <p></p><p>Coast Diagnostics is a COLA and CLIA-licensed full-service laboratory that ranks as the premier provider of comprehensive lab services in the Southeast. Based in Mobile, Alabama, Coast Diagnostics offers industry-leading quality, reliability, and accuracy in its lab services. <br /><br />Specialties include COVID-19 testing, Hematology, Coagulation, Chemistry, Urinalysis, Microbiology, Pathology, and Next Generation Sequencing. Coast Diagnostics uses state of the art platforms that allow Coast to stay on the cutting edge testing services focused on preventative diagnostic laboratory services for patients and providers.</p><p></p>
                                 </div>
                                 <div className="column">
-                                    <img src="./assets/testingInAction.jpg" className="introImage" alt="Industry Leading Quality And Service" />
+                                    <img src={testingInAction} className="introImage" alt="Industry Leading Quality And Service" />
                                 </div>
                             </div>
                         </div>
@@ -25,10 +29,10 @@ class HomePage extends Component {
                         <div className="container">
                             <div className="columns">
                                 <div className="column is-half" style={{textAlign:"right"}}>
-                                    <img src="./assets/clia.jpg" alt="CLIA Certified" />
+                                    <img src={clia} alt="CLIA Certified" />
                                 </div>
                                 <div className="column" style={{textAlign:"center"}}>
-                                    <img src="./assets/cola.jpg" alt="COLA Accredited" />
+                                    <img src={cola}alt="COLA Accredited" />
                                 </div>
                             </div>
                             
