@@ -101,7 +101,7 @@ class AuthPage extends Component {
         return (
         <div>
             <div className="flex-container">
-                <h2>{this.state.isLogin ? 'Signup' : 'Login'}</h2>
+                <h2>{!this.state.isLogin ? 'Signup' : 'Login'}</h2>
                 <div></div>
             </div>
             <form className="auth-form" onSubmit={this.submitHandler}>

@@ -4,10 +4,15 @@ import Spinner from '../Spinner/Spinner';
 
 import './ModalTests.css';
 
-const modalTests = (props) => {
+const ModalTests = (props) => {
+
     console.log(props)
+    let tempYOffset = (window.pageYOffset - 400) + "px"
+    const styles = { top: tempYOffset}
+
     return (
-    <div className="modal-tests">
+    <div className="modal-tests" style={styles}>
+
         <header className="modal__header">{props.title}</header>
         <section className="modal__content"></section>
         {props.loading && <Spinner />}
@@ -26,4 +31,4 @@ const modalTests = (props) => {
 )
 }
 
-export default modalTests;
+export default ModalTests;

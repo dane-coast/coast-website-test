@@ -1,12 +1,12 @@
-.modal-tests {
+.modal-tests-search {
     /* min-width: 30rem; */
     max-width: 60rem;
-    width: 90vw;
+    width: 90%;
     background: white;
     border: 1px solid #0086b3;
     box-shadow: 0 2px 8px rgba(0,0,0,0.26);
-    position: absolute;
-    /* top: calc(30% -200px); */
+    position: fixed;
+    top: 15vh;
     margin: auto;
     /* left:1rem; */
     z-index: 110;

@@ -8,27 +8,48 @@ import './LabServices.css'
 import coag from "../assets/coagulation.jpg";
 import chem from "../assets/chemistry.jpg";
 import drugScreen from '../assets/urinalysis-drugscreening.jpg';
+import ModalTestSearch from '../components/Modal/ModalTestSearch';
 
 class LabServicesPage extends Component {
-    state = {
-        searching: false,
-        tests: [],
-        isLoading: false,
-    };
+
 
     constructor(props) {
         super(props);
         this.titleElRef = React.createRef();
 
         this.searchThisElRef = React.createRef();
-    }
+        this.state = {
+            searching: false,
+            tests: [],
+            isLoading: false,
+            searchModal: false,
+            searchThis: '',
+            target: ''
+        };
 
+    }
+    updateSearchThis = (something) => {
+        this.setState({searchThis: something})
+    }
+    startModalTestSearchHandler = (e) => {
+        // e.preventDefault();
+        // this.setState({searching: true});
+        console.log(e)
+        this.setState({searchModal: true});
+        console.log(e.target.innerText)
+        this.setState({target: `Search for ${e.target.innerText} Tests`})
+        // this.setState({isLoading: true});
+    }
+    onSearchEntryHandler = (e) => {
+        this.setState({searchThis: e.target.value})
+        // console.log(this.state.searchThis)
+    }
     startSearchingTestHandler = (e) => {
         e.preventDefault();
         // console.log(e)
         this.setState({searching: true});
         this.setState({isLoading: true});
-        const searchFor = this.searchThisElRef.current.value;
+        const searchFor = this.state.searchThis 
 
         if (searchFor.trim().length === 0) {
             return
@@ -126,6 +147,8 @@ class LabServicesPage extends Component {
     backdropClickHandler = () => {
         // can add more functionality here
         this.setState({searching: false});
+        this.setState({searchModal: false});
+        this.setState({searchThis: ''});
       };
     
 
@@ -135,16 +158,19 @@ class LabServicesPage extends Component {
             
             <React.Fragment>
                 {this.state.searching && <Backdrop  click={this.backdropClickHandler}/>}
+                {this.state.searchModal && <Backdrop click={this.backdropClickHandler} />}
               <Hero currentPage={this.props.location}/>
                 <main role="main">
-                <div className="events-control">
-                    {/* <Modal title="Tests Found" classes={modalStyles} tests={this.state.tests} /> */}
-                    <form onSubmit={this.startSearchingTestHandler}>
-                        <div className="form-control">
-                            <input type="text" id="searchThis" ref={this.searchThisElRef} placeholder="Search"></input>
-                        </div>
-                        <button type="submit" className="btn" >Search For Test</button>
-                    </form>
+                <div className='inline__test-search'>
+                    <div className="events-control">
+                        {/* <Modal title="Tests Found" classes={modalStyles} tests={this.state.tests} /> */}
+                        <form onSubmit={this.startSearchingTestHandler}>
+                            <div className="form-control">
+                                <input type="text" id="searchThis" value={this.state.searchThis} onChange={this.onSearchEntryHandler}  placeholder="Search"></input>
+                            </div>
+                            <button type="submit" className="btn" >Search For Test</button>
+                        </form>
+                    </div>
                 </div>
                     
                     {/* <div style={{marginTop:"-2.0rem", display: "block"}}><TestsPage /></div> */}
@@ -155,12 +181,18 @@ class LabServicesPage extends Component {
                     <section id="labServices">
                         <div className="container">
                             <div className='center'>
-                                {this.state.searching && <ModalTests title="lab tests" onCancel={this.testModalCancelHandler} loading={this.state.isLoading} tests={this.state.tests}>
-                                    </ModalTests>}
+                                <div className="modal-container">
+                                    {this.state.searching && <ModalTests title="lab tests" onCancel={this.testModalCancelHandler} loading={this.state.isLoading} tests={this.state.tests}>
+                                        </ModalTests>}
+                                    {!this.state.searching && this.state.searchModal && <ModalTestSearch change={this.updateSearchThis} submitHandler={this.startSearchingTestHandler} title={this.state.target}/>}
+
+                                </div>
                                 
                             </div>
                             <div className="lab-service" id="5507" style={{textAlign:"left"}}>
-                                <h2>COVID-19</h2>
+                                <h2 id="covid-19" onClick={this.startModalTestSearchHandler}><span>COVID-19</span></h2>
+                                {/* remove this */}
+                                <p>{this.state.searchThis}</p>
                                 <div className="labPage">
                                     <p>Coast Diagnostics is a leader in providing fast, accurate COVID-19 results to practitioners across the Gulf Coast region. We provide one of the best turnaround times in the industry, with results reported in 24-48 hours.
                                     </p>
@@ -191,7 +223,7 @@ class LabServicesPage extends Component {
                                 </div>
                             </div>
                             <div className="lab-service" id="5497" style={{textAlign:"left"}}>
-                                <h2>Hematology</h2>
+                                <h2 id="hematology" onClick={this.startModalTestSearchHandler}><span>Hematology</span></h2>
                                 <div className="labPage">
                                     <p>
                                         Coast Diagnostics provides practitioners with state-of-the-art hematology testing. From Complete Blood Counts to Eosinophil Sedimentation Rates, we assure accurate results on testing run by our highly trained, experienced laboratory professionals   
@@ -209,7 +241,7 @@ class LabServicesPage extends Component {
                             <div className="lab-service" id="5490" style={{textAlign:"left"}}>
                                 <div className="lab-page">
                                     <div>
-                                    <h2>Coagulation</h2>
+                                    <h2 id="coagulation" onClick={this.startModalTestSearchHandler}><span>Coagulation</span></h2>
                                     <p>Coagulation testing is used to check the function of one or more of your coagulation factors. </p>
                                     </div>  
                                         <img src={coag} s alt="Coagulation" />            
@@ -234,7 +266,7 @@ class LabServicesPage extends Component {
                             <div className="lab-service" id="5500" style={{textAlign:"left"}}>
                                 <div className="lab-page">
                                     <div>
-                                        <h2>Chemistry</h2>
+                                        <h2 id="chemistry" onClick={this.startModalTestSearchHandler}><span>Chemistry</span></h2>
                                         <p>
                                             Blood chemistry tests or panels are groups of tests that measure many chemicals in a sample of blood. They show how well certain organs are working and can help find abnormalities. There are many types of blood chemistry tests. They measure chemicals including enzymes, electrolytes, fats (lipids), hormones, sugars, proteins, vitamins and minerals. Coast Diagnostics performs many chemistry tests and reports these back to your doctor within a few hours of receiving the samples. 
                                         </p>
@@ -353,7 +385,7 @@ class LabServicesPage extends Component {
                             <div className="lab-service" id="5503" style={{textAlign:"left"}}>
                                 <div className="lab-page">
                                     <div>
-                                        <h2>Urinalysis / Urine Drug Screen</h2>
+                                        <h2 id="urinalysis" onClick={this.startModalTestSearchHandler}><span>Urinalysis / Urine Drug Screen</span></h2>
                                         <p>
                                             Urinalysis is a test of your urine. It is used to detect and manage a wide range of disorders, such as urinary tract infections, kidney disease and diabetes. An abnormal urinalysis result may point to a disease or illness. Urine Drug Screening is testing for drugs and metabolites in urine to determine if the patient is taking any drugs, legal or illegal. 
                                         </p>
@@ -368,7 +400,7 @@ class LabServicesPage extends Component {
                                 </div> */}
                             </div>
                             <div className="lab-service" id="5512" style={{textAlign:"left"}}>
-                                <h2>Microbiology / Molecular</h2>
+                                <h2 id="molecular" onClick={this.startModalTestSearchHandler}><span>Microbiology / Molecular</span></h2>
                                 <div className="labPage">
                                     <p>
                                         Microbiology tests determine if a person has an infection. Routine microbiology testing takes 1-3 or more days. Molecular testing is performed by RT-PCR at Coast Diagnostics in partnership with Thermo Fisher. These tests are highly sensitive and specific for certain organisms and many panels are available for practitioners to order.
@@ -387,10 +419,10 @@ class LabServicesPage extends Component {
                                 </div> */}
                             </div>
                             <div className="lab-service" id="5515" style={{textAlign:"left"}}>
-                                <h2>Pathology</h2>
+                                <h2 onClick={this.startModalTestSearchHandler}><span>Pathology</span></h2>
                                 <div className="labPage">
                                     <p>
-                                        Comprehensive Pathology services are available, tailored to your needs. Please <a href="contact.html">contact Coast Diagnostics</a> for a customized approach to fit your practice requirements. 
+                                        Comprehensive Pathology services are available, tailored to your needs. Please <a href="/contact">contact Coast Diagnostics</a> for a customized approach to fit your practice requirements. 
                                     </p>
                                 </div>
                                 <div className="labTestList">
@@ -398,7 +430,7 @@ class LabServicesPage extends Component {
                                 </div>
                             </div>
                             <div className="lab-service" id="5518" style={{textAlign:"left"}}>
-                                <h2>Next Gen Sequencing</h2>
+                                <h2 onClick={this.startModalTestSearchHandler}><span>Next Gen Sequencing</span></h2>
                                 <div className="labPage">
                                     <p>
                                         Viral infections are a major global health concern, with new infectious diseases continuing to emerge. The 2019 outbreak of Coronavirus that began in Wuhan, China and quickly spread to multiple countries is a particularly concerning example. Coronaviruses are a large family of viruses that can infect humans, causing respiratory illnesses ranging from the common cold to more severe diseases, such as MERS-CoV and SARS-CoV. 
@@ -407,8 +439,7 @@ class LabServicesPage extends Component {
                                         Next-generation sequencing (NGS) provides an effective, novel way to screen samples and detect viruses without previous knowledge of the infectious agent. Target enrichment is a resequencing method that captures genomic regions of interest by hybridization to target-specific biotinylated probes. Target enrichment through hybrid-capture methods allows for highly sensitive detection, without requiring the high read depth needed for shotgun metagenomics sequencing. This system of analyzer and software is best-in-class for microbial classification covering 50k microorganisms including 35K viruses, 13K bacteria, 4K fungi, 150+ parasites, and 6K human pathogens. Data was mined from 30 million abstracts and publications mined from PubMed enabling Explify to prioritize the 3K human pathogens based on unique disease phenotypes. The database is self-learning, continually improving search functionality. Next Gen Sequencing is the newest method of determining a cause of infection. Coast Diagnostics is engaged in efforts to offer Next Gen Sequencing as its newest testing for microbial identification and antibiotic susceptibility.
                                     </p>
                                 </div>
-                                <div className="labTestList">
-                                </div>
+                               
                             </div>
                         </div>
                     </section>

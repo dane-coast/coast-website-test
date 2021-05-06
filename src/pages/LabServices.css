@@ -13,3 +13,11 @@
     display: flex;
     justify-content: center;
 }
+
+.modal-container {
+    height: 100%;
+    width: 100vw;
+    display:contents;
+    position: fixed;
+    top: 1rem;
+}
