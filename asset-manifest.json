@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/coast-website-test/static/css/main.ac39951d.chunk.css",
+    "main.js": "/coast-website-test/static/js/main.96001c38.chunk.js",
+    "main.js.map": "/coast-website-test/static/js/main.96001c38.chunk.js.map",
+    "runtime-main.js": "/coast-website-test/static/js/runtime-main.7e7c436c.js",
+    "runtime-main.js.map": "/coast-website-test/static/js/runtime-main.7e7c436c.js.map",
+    "static/js/2.38e5a211.chunk.js": "/coast-website-test/static/js/2.38e5a211.chunk.js",
+    "static/js/2.38e5a211.chunk.js.map": "/coast-website-test/static/js/2.38e5a211.chunk.js.map",
+    "static/js/3.b46a85a2.chunk.js": "/coast-website-test/static/js/3.b46a85a2.chunk.js",
+    "static/js/3.b46a85a2.chunk.js.map": "/coast-website-test/static/js/3.b46a85a2.chunk.js.map",
+    "index.html": "/coast-website-test/index.html",
+    "static/css/main.ac39951d.chunk.css.map": "/coast-website-test/static/css/main.ac39951d.chunk.css.map",
+    "static/js/2.38e5a211.chunk.js.LICENSE.txt": "/coast-website-test/static/js/2.38e5a211.chunk.js.LICENSE.txt",
+    "static/media/CoastDiagnosticsLogo.f7b0d491.png": "/coast-website-test/static/media/CoastDiagnosticsLogo.f7b0d491.png",
+    "static/media/CoastTerritoriesMap.6777d622.png": "/coast-website-test/static/media/CoastTerritoriesMap.6777d622.png",
+    "static/media/chemistry.9fe6e47e.jpg": "/coast-website-test/static/media/chemistry.9fe6e47e.jpg",
+    "static/media/clia.8ae5e9a8.jpg": "/coast-website-test/static/media/clia.8ae5e9a8.jpg",
+    "static/media/coagulation.d476ece5.jpg": "/coast-website-test/static/media/coagulation.d476ece5.jpg",
+    "static/media/coast-diagnostics-hero.0bda5d10.mp4": "/coast-website-test/static/media/coast-diagnostics-hero.0bda5d10.mp4",
+    "static/media/cola.d6704a6f.jpg": "/coast-website-test/static/media/cola.d6704a6f.jpg",
+    "static/media/logo.6ce24c58.svg": "/coast-website-test/static/media/logo.6ce24c58.svg",
+    "static/media/testingInAction.69a69c1e.jpg": "/coast-website-test/static/media/testingInAction.69a69c1e.jpg",
+    "static/media/urinalysis-drugscreening.a8ec697d.jpg": "/coast-website-test/static/media/urinalysis-drugscreening.a8ec697d.jpg",
+    "static/media/wlox-thumbnail.5ad0ec08.jpg": "/coast-website-test/static/media/wlox-thumbnail.5ad0ec08.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7e7c436c.js",
+    "static/js/2.38e5a211.chunk.js",
+    "static/css/main.ac39951d.chunk.css",
+    "static/js/main.96001c38.chunk.js"
+  ]
+}
