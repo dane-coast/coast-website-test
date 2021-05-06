@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import ReactDOM from ‘react-dom’;
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import './css/styles2.css';
 import './css/bulma.css';
@@ -18,6 +19,8 @@ import './App2.css';
 // import Hero from './components/Hero/Hero';
 import SideDrawer from './components/SideDrawer/SideDrawer'
 import Backdrop from './components/Backdrop/Backdrop'
+  
+// ReactDOM.render(<Router basename={process.env.PUBLIC_URL}>< App2 /></Router>, document.getElementById('root'));  
 
 
 class App2 extends React.Component {
@@ -57,6 +60,7 @@ class App2 extends React.Component {
                       {/* <Hero /> */}
                         <Switch>
                             <Redirect from='/coast-website-test/' to='/' />
+                            <Redirect from='/home/' to='/' />
                             <Route path="/" component={HomePage} exact/>
                             <Route path="/about-us" component={AboutUsPage} />
                             <Route path="/careers" component={CareersPage} />
