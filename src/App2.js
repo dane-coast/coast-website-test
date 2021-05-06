@@ -12,6 +12,7 @@ import NewsPage from './pages/News';
 import CareersPage from './pages/Careers';
 import HomePage from './pages/Home';
 import AuthPage from './pages/Auth';
+import Footer from './components/Footer/Footer'
 
 import './App2.css';
 // import Hero from './components/Hero/Hero';
@@ -64,8 +65,9 @@ class App2 extends React.Component {
                             <Route path="/news" component={NewsPage} />
                             <Route path="/login" component={AuthPage} />
                         </Switch>
+                        
                   </div>
-              
+                <Footer />
               </div>
             </React.Fragment>
           </BrowserRouter>

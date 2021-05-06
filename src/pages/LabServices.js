@@ -27,6 +27,7 @@ class LabServicesPage extends Component {
         e.preventDefault();
         // console.log(e)
         this.setState({searching: true});
+        this.setState({isLoading: true});
         const searchFor = this.searchThisElRef.current.value;
 
         if (searchFor.trim().length === 0) {
@@ -154,7 +155,7 @@ class LabServicesPage extends Component {
                     <section id="labServices">
                         <div className="container">
                             <div className='center'>
-                                {this.state.searching && <ModalTests title="lab tests" onCancel={this.testModalCancelHandler} tests={this.state.tests}>
+                                {this.state.searching && <ModalTests title="lab tests" onCancel={this.testModalCancelHandler} loading={this.state.isLoading} tests={this.state.tests}>
                                     </ModalTests>}
                                 
                             </div>

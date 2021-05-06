@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Modal from '../../../Modal/Modal';
+import Spinner from '../../../Spinner/Spinner'
 
 import './TestItem.css'
 
@@ -8,6 +9,7 @@ class TestItem extends Component {
     state = {
         details:this.props.testId,
         showDetails: false,
+        isLoading: false,
     }
     constructor(props) {
         super(props);
@@ -19,9 +21,10 @@ class TestItem extends Component {
     showDetailHandler = () => {
         // this.setState()
         // console.log(testId)
-        this.setState({details: this.props.testId})
-        console.log(this.state.details)
-        console.log(this.props)
+        this.setState({details: this.props.testId});
+        this.setState({isLoading: true});
+        console.log(this.state.details);
+        console.log(this.props);
 
 
         const requestBody = {
@@ -96,6 +99,7 @@ class TestItem extends Component {
         <React.Fragment>
              <li key={this.props.testId} className="tests__list-item">
             <div>
+                
                 <h1>{this.props.title}</h1>
                 <h2>{this.props.CPT}</h2>
             </div>
@@ -104,7 +108,7 @@ class TestItem extends Component {
                 <div className="btn" onClick={this.showDetailHandler}>View Details</div>        
             </div>
         </li>
-        {this.state.showDetails && <Modal test={this.state.test}></Modal>}
+        {this.state.showDetails && <Modal loading={this.state.isLoading} test={this.state.test}></Modal>}
         </React.Fragment>
        
         );

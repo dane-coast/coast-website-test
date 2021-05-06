@@ -1,0 +1,26 @@
+.flex-container {
+    display: flex;
+    margin-top: -20px;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    color: white;
+    /* background: #042464 */
+}
+.contact, .services, .information {
+    margin-top: 1rem;
+    flex-grow: 3;
+}
+
+.contact {
+    margin-left: .5rem;
+}
+.flex-container strong {
+    color: #209bac;
+}
+.flex-container a {
+    color: white;
+}
+footer {
+    font-size:1.2rem;
+    background: #042464;
+}

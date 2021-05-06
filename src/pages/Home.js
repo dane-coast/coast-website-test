@@ -10,14 +10,13 @@ class HomePage extends Component {
         return(
             <React.Fragment>
                 <Hero currentPage={this.props.location}/>
-                  <h1>The Home Page</h1>
                   <main role="main">
                     <section className="homeIntro">
                         <div className="container">
                             <div className="columns">
                                 <div className="column is-half">
-                                    <h2 className="introHeading">Industry Leading Quality And Service</h2>
-                                    <p></p><p>Coast Diagnostics is a COLA and CLIA-licensed full-service laboratory that ranks as the premier provider of comprehensive lab services in the Southeast. Based in Mobile, Alabama, Coast Diagnostics offers industry-leading quality, reliability, and accuracy in its lab services. <br /><br />Specialties include COVID-19 testing, Hematology, Coagulation, Chemistry, Urinalysis, Microbiology, Pathology, and Next Generation Sequencing. Coast Diagnostics uses state of the art platforms that allow Coast to stay on the cutting edge testing services focused on preventative diagnostic laboratory services for patients and providers.</p><p></p>
+                                    
+                                    <p></p><p><strong>Coast Diagnostics</strong> is a <strong>COLA</strong> and <strong>CLIA-licensed</strong> full-service laboratory that ranks as the premier provider of comprehensive lab services in the Southeast. Based in Mobile, Alabama, Coast Diagnostics offers industry-leading quality, reliability, and accuracy in its lab services. <br /><br />Specialties include COVID-19 testing, Hematology, Coagulation, Chemistry, Urinalysis, Microbiology, Pathology, and Next Generation Sequencing. Coast Diagnostics uses state of the art platforms that allow Coast to stay on the cutting edge testing services focused on preventative diagnostic laboratory services for patients and providers.</p><p></p>
                                 </div>
                                 <div className="column">
                                     <img src={testingInAction} className="introImage" alt="Industry Leading Quality And Service" />
@@ -54,6 +53,7 @@ class HomePage extends Component {
 
                     </div>
                 </main>
+                    
             </React.Fragment>
       
                     

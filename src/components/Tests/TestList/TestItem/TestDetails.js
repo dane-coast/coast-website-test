@@ -33,14 +33,10 @@ const testDetails = props => {
         let keysToFlatten = []
         let flattencalled = 0;
         const flattenObject =  ((object) => {
-            console.log(flatKeys)
             let tempObj;
             if (object) {
                 if (Object.keys(object)) {
                     let keys = Object.keys(object)
-                    console.log(flattencalled)
-                    console.log('object')
-                    console.log(keys)
                     keys.forEach(key => {
                         allKeys.push(key)
                         if (typeof object[key] === 'string' || typeof object[key] === 'number' || typeof object[key] === 'boolean') {
@@ -58,9 +54,7 @@ const testDetails = props => {
                             console.log(`${object[key]} is null or undefined`)
                         }
                         else {
-                            
                                 keysToFlatten.push(object[key])
-                                flattencalled += 1
                                 flattenObject(object[key])
                             
                         }

@@ -1,13 +1,17 @@
 import React from 'react';
 import TestList from '../Tests/TestList/TestList';
-
+import Spinner from '../Spinner/Spinner';
 
 import './ModalTests.css';
 
-const modalTests = (props) => (
+const modalTests = (props) => {
+    console.log(props)
+    return (
     <div className="modal-tests">
         <header className="modal__header">{props.title}</header>
         <section className="modal__content"></section>
+        {props.loading && <Spinner />}
+            {/* <Spinner /> */}
             {/* pass the content in dynmically -> props.children -> slot react solution, can pass anything between our modaljs tags and that will be rendered*/}
             {props.children}
             {props.tests  ? (
@@ -20,5 +24,6 @@ const modalTests = (props) => (
     </div>
 
 )
+}
 
 export default modalTests;
