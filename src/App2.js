@@ -38,6 +38,10 @@ class App2 extends React.Component {
     this.setState({sideDrawerOpen: false});
   };
 
+  sideLinkClickHandler = () => {
+    this.setState({sideDrawerOpen: false})
+  }
+
   render() {
     // let sideDrawer;
     let backdrop;
@@ -53,7 +57,7 @@ class App2 extends React.Component {
           <BrowserRouter>
             <React.Fragment>
               <MainNavigation drawerClickHandler={this.drawerToggleClickHandler} />
-              <SideDrawer show={this.state.sideDrawerOpen} />
+              <SideDrawer click={this.sideLinkClickHandler} show={this.state.sideDrawerOpen} />
               {backdrop}
               <div className="coast-body">
                   <div id="coast-body">
