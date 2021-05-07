@@ -324,12 +324,7 @@ section.our-team{
 }
 
 /* NEWS STYLES */
-#coast-body .news-listing article, #news article{
-    border-bottom:1px solid #ccc;
-    margin-bottom:3rem;
-    padding-bottom:1.5rem;
-    box-sizing:border-box;
-}
+
 #coast-body .news-listing article .news-feature-img{
     width:100%;
 }

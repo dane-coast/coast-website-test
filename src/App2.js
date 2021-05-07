@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import ReactDOM from ‘react-dom’;
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch, useLocation } from 'react-router-dom';
 import './css/styles2.css';
 import './css/bulma.css';
 import './css/font.css';
