@@ -8,3 +8,21 @@
     display: flex;
     justify-content: space-around;
 }
+
+.hide-later {
+   margin-top: 3rem ;
+}
+.fake-button {
+    padding: 1rem;
+    background: #0086b3;
+    border: 1px solid #0086b3;
+    border-radius: 8px;
+    color: white;
+}
+.fake-button:hover,
+.fake-button:active {
+    color: white;
+    background: #042464;;
+    border: 1px solid #042464;
+
+}

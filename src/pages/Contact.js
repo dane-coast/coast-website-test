@@ -32,16 +32,13 @@ class ContactPage extends Component {
     handleSubmit(event) {
         event.preventDefault();  
         this.setState({ status: "Sending" });  
-        const msg = {
-            email: this.state.email,
-            name: this.state.name,
-            message: this.state.message
-        }
+   
+        console.log(this.state.email)
 
         const requestBody = {
         query: `
             mutation {
-            sendContactMessage(contactInput: {name:"${msg.name}", email:"${msg.email}", message: "${msg.message}"}){
+            sendContactMessage(contactInput: {name: "${this.state.name}", email: "${this.state.email}", message: "${this.state.message}"}){
                 _id
                 name
                 email
@@ -50,21 +47,30 @@ class ContactPage extends Component {
             }
         `
             
-        }
+        }   // http://localhost:8000/graphql
         fetch('https://mighty-coast-19334.herokuapp.com/graphql' , {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then((response) => {
-            if (response.data.status === "sent") {
-            alert("Message Sent");
-            this.setState({ name: "", email: "", message: "", status: "Submit" });
-            } else if (response.data.status === "failed") {
-            alert("Message Failed");
+        }).then(res => {
+            if (res.status !== 200 && res.status !==210) {
+                throw new Error('Failed')
             }
-        });
+            return res.json();
+        }).then(resData => {
+            console.log(resData);
+            // this.fetchEvents();
+            this.setState({email: ''});
+            this.setState({name: ''});
+            this.setState({message: ''})
+            return resData
+
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render() {

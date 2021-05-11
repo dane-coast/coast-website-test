@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 
 import './Auth.css';
 import AuthContext from '../context/auth-context';
+import ModalContacts from '../components/Modal/ModalContacts'
+import Backdrop from '../components/Backdrop/Backdrop';
 
 class AuthPage extends Component {
 
     state = {
-        isLogin: true
+        isLogin: true,
+        backdrop: false,
+        showContacts: false,
+        contacts: '',
+        offset: 0
     };
 
     static contextType = AuthContext;
@@ -23,7 +29,63 @@ class AuthPage extends Component {
             };
         })
     }
+
+
+    nextHandler = () => {
+        let currentOffset = this.state.offset;
+        const newOffset = currentOffset + 5;
+        console.log(newOffset)
+        this.setState({offset: newOffset},
+            () => {this.showContactsHandler()});
+        console.log(this.state.offset)
+
+        this.setState({contacts: ''})
+        
+    }
     
+    showContactsHandler = () => {
+        this.setState({backdrop: true})
+        this.setState({showContacts: true})
+        console.log(this.state.offset)
+
+        const requestBody = {
+            query: `
+            query {
+                contacts(limit:5 offset:${this.state.offset}) {
+                  name
+                  email
+                  message
+                }
+              }
+                `
+        };
+        // 'https://mighty-coast-19334.herokuapp.com/graphql'
+        fetch('http://localhost:8000/graphql', {
+            method: 'POST',
+            body: JSON.stringify(requestBody),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(res => {
+            if (res.status !== 200 && res.status !==210) {
+                throw new Error('Failed')
+            }
+            return res.json();
+        })
+        .then(resData => {
+            console.log('resData')
+            console.log(resData);
+            const contacts = resData.data.contacts
+            this.setState({contacts: contacts, isLoading: false})
+            console.log(this.state.contacts)
+            // this.fetchTests();
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     submitHandler = (event) => {
         event.preventDefault();
         const email = this.emailEl.current.value;
@@ -96,10 +158,20 @@ class AuthPage extends Component {
         // ...
     };
 
+    backdropClickHandler = () => {
+        // can add more functionality here
+        this.setState({backdrop: false});
+        this.setState({showContacts: false});
+        this.setState({offset: 0})
+        // this.setState({searchThis: ''});
+      };
+    
+
 
     render() {
         return (
         <div>
+            {this.state.backdrop && <Backdrop click={this.backdropClickHandler} />}
             <div className="flex-container">
                 <h2>{!this.state.isLogin ? 'Signup' : 'Login'}</h2>
                 <div></div>
@@ -118,6 +190,10 @@ class AuthPage extends Component {
                     <button type="button" onClick={this.switchModeHandler}>Switch to {this.state.isLogin ? 'Signup' : 'Login'}</button>
                 </div>
             </form>
+            <div className='flex-container hide-later'>
+                <div className='fake-button' onClick={this.showContactsHandler}>Show contacts</div>
+                {this.state.showContacts && <ModalContacts title="a long title" contacts={this.state.contacts} onNext={this.nextHandler} />}
+            </div>
         </div>
         )
     }
