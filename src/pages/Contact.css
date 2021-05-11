@@ -1,0 +1,10 @@
+.contact-form {
+    width: 25rem;
+    max-width: 80%;
+    margin: 1rem auto;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+}

@@ -212,6 +212,10 @@ html{
   margin-bottom:calc(50px + 1.5rem);
 }
 
+.triangle .tight {
+    margin-top: -5rem;
+}
+
 .triangle::before {
   content: '';
   position: absolute;

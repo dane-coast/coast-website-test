@@ -1,0 +1,46 @@
+.modal {
+    width: 30rem;
+    max-width: 90%;
+    background: white;
+    border: 1px solid #0086b3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+    position: absolute;
+    margin: auto;
+    z-index: 110;
+    /* display:table; */
+}
+
+.modal__header {
+    padding: 1rem;
+    background: #0086b3;
+    color: white;
+}
+
+.modal__header h1 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.modal__content {
+    padding: 1rem
+}
+
+.modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.modal.show {
+    display:table;
+}
+.date {
+    font-size: 0.8rem;
+}
+
+@media(min-width: 768px) {
+.modal {
+    width: 50rem;
+    left: calc(100% - 30rem) / 2;
+}
+}

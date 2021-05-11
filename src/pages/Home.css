@@ -1,0 +1,7 @@
+a strong:hover,
+a strong:active {
+    background: #0086b3 !important;
+    color: white !important;
+    padding: .1rem .2rem .2rem .2rem;
+    border-radius: 6px;
+}

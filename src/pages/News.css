@@ -40,16 +40,31 @@ article .date {
     /* background: orange; */
 }
 .blog .button {
-    justify-self: end !important;
+    justify-self: end;
 }
+.button:nth-of-type(1) { order: 4;} 
 /* .post-summary {
     flex-grow: 100%;
 } */
-@media (min-width: 769px) {
-    .button:nth-of-type(1) { order: 4;} 
-    /* .spacer:nth-of-type(1) {order: 2} */
+@media (max-width: 768px) {
+    .sub-flex {
+        flex-wrap:wrap;
+    }
+    .button:nth-of-type(1) { order: 2;} 
+    a .readmore {
+        justify-self: baseline;
+        align-self: baseline;
+        order: 2;
+    }
+    .blog img {
+        order:3;
+    }
+
 }
 .blog img {
     max-width: 450px;
     width: 100%;
+}
+.triangle .tight {
+    margin-top: -5rem;
 }

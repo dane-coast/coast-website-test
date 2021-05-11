@@ -10,7 +10,7 @@ class AboutUsPage extends Component {
                 <Hero currentPage={this.props.location}/>
                 <main role="main">
                     <div className="triangle" id="aboutTriangle1">
-                        <h2 className="triangle">Industry Leading Reference &amp; Research Laboratory</h2>
+                        <h2 className="triangle tight">Industry Leading Reference &amp; Research Laboratory</h2>
                     </div>
                     <section className="aboutContent">
                         <div className="container">

@@ -4,6 +4,7 @@ import clia from '../assets/clia.jpg';
 import cola from '../assets/cola.jpg';
 import testingInAction from '../assets/testingInAction.jpg';
 
+import './Home.css'
 
 class HomePage extends Component {
     render() {
@@ -41,7 +42,7 @@ class HomePage extends Component {
                         <h2 className="triangle">Robust Capability</h2>
                     </div>
                     <div className="container">
-                        <p>Coast offers an extended test menu of both <strong>routine and cutting edge testing</strong>. Coast uses advanced information technology for producing research and delivering results. At our core, we believe in working closely with healthcare providers in our region and offer a dedicated team of specialists who share our <strong>"community first" values</strong> in providing our services to you. <br /></p>
+                        <p>Coast offers an extended test menu of both <a href="/lab-services"><strong>routine and cutting edge testing</strong>.</a>Coast uses advanced information technology for producing research and delivering results. At our core, we believe in working closely with healthcare providers in our region and offer a dedicated team of specialists who share our <strong>"community first" values</strong> in providing our services to you. <br /></p>
 
                     </div>
                     <div className="QIA">
