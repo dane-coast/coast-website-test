@@ -9,7 +9,7 @@ The following fields are empty and need to be filled
  2. panel.synonym
  3. panel.estimatedCost
  4. panel.alternateId1
- 5. 
+ 5.  ...
 
 
 #### notes
@@ -28,6 +28,17 @@ if panel.name == paneltest.name => test is not a panel.
 
 ### lab-services 
 - [ ] fix two broken COVID-19 links.
+- [ ] make lab locations link to modal with google maps and contact info -> build this modal
+  
+### contact us
+- After logins are created, make client contact us option for chat???  
+- ? route to correct phone and etc info based on ip and geospatial browser / device data
+
+### careers 
+- [ ] make for job openings. Filtering for type and location.
+- [ ] Create application form.
+- [ ] resume upload -> parse and auto fill application form.
+
 
 ### un-built
 
