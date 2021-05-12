@@ -7,7 +7,7 @@ import './ModalTests.css';
 const ModalTests = (props) => {
 
     console.log(props)
-    let tempYOffset = (window.pageYOffset - 400) + "px"
+    let tempYOffset = (window.pageYOffset - 550) + "px"
     const styles = { top: tempYOffset}
 
     return (
