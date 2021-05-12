@@ -318,9 +318,9 @@ section.ourTeam{
 
 /* NEWS STYLES */
 #coastBody .newsListing article, #news article{
-    border-bottom:1px solid #ccc;
+    /* border-bottom:1px solid #ccc;
     margin-bottom:3rem;
-    padding-bottom:1.5rem;
+    padding-bottom:1.5rem; */
     box-sizing:border-box;
 }
 #coastBody .newsListing article .newsFeatureImg{
