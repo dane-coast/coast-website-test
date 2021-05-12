@@ -3,6 +3,9 @@ html{
     width:100%;
     box-sizing:border-box;
 }
+body {
+    height: 96%;
+}
 @media only screen and (max-width: 768px) {
     #coast-body{
         /* padding-top:150px; */
@@ -24,7 +27,7 @@ html{
   font-family:'Roboto',sans-serif;
   font-size:18px;
   color:#252525;
-  min-height:90vh;
+  min-height:90%;
   margin-top: 5.0rem;
   box-sizing:border-box;
 }
@@ -156,11 +159,13 @@ html{
     width:100%;
 }
 
-
+#coast-body {
+    min-height: 90;
+}
 #coast-body footer{
   background-color: #042464;
   color:#fff;
-  font-size: .875rem;
+  /* font-size: .875rem; */
   margin: 3rem 0 0 0;
   box-sizing:border-box;
   padding:2rem 0 1rem 0;

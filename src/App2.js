@@ -61,7 +61,7 @@ class App2 extends React.Component {
               {backdrop}
               <div className="coast-body">
                   <div id="coast-body">
-                      {/* <Hero /> */}
+                    <div className="vertical-flex">
                         <Switch>
                             <Redirect from='/coast-website-test/' to='/' />
                             <Redirect from='/home/' to='/' />
@@ -73,9 +73,12 @@ class App2 extends React.Component {
                             <Route path="/news" component={NewsPage} />
                             <Route path="/login" component={AuthPage} />
                         </Switch>
+                    </div>
+                    <div className="spacer"></div>
+                      {/* <Hero /> */}
                         
+                    <Footer />
                   </div>
-                <Footer />
               </div>
             </React.Fragment>
           </BrowserRouter>

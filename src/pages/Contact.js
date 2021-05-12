@@ -119,7 +119,7 @@ class ContactPage extends Component {
                         <button type="submit">{buttonText}</button>
                     </div>
                 </form>      
-            );
+           
 
             </React.Fragment>
         )};
