@@ -5,7 +5,7 @@ import './ModalArticle.css';
 import Spinner from '../Spinner/Spinner'
 
 const modal = props => {
-    let tempYOffset = (window.pageYOffset - 200) + "px"
+    let tempYOffset = (window.pageYOffset - 550) + "px"
     const styles = { top: tempYOffset}
 
     return (
