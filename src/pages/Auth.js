@@ -4,6 +4,7 @@ import './Auth.css';
 import AuthContext from '../context/auth-context';
 import ModalContacts from '../components/Modal/ModalContacts'
 import Backdrop from '../components/Backdrop/Backdrop';
+import Spinner from '../components/Spinner/Spinner';
 
 class AuthPage extends Component {
 
@@ -12,7 +13,8 @@ class AuthPage extends Component {
         backdrop: false,
         showContacts: false,
         contacts: '',
-        offset: 0
+        offset: 0,
+        isLoading: false
     };
 
     static contextType = AuthContext;
@@ -29,14 +31,21 @@ class AuthPage extends Component {
             };
         })
     }
-
+    
 
     nextHandler = () => {
         let currentOffset = this.state.offset;
         const newOffset = currentOffset + 5;
         console.log(newOffset)
-        this.setState({offset: newOffset},
-            () => {this.showContactsHandler()});
+        this.setState({
+            offset: newOffset,
+            backdrop: false,
+            showContacts: false
+        },
+            () => {
+            
+                this.showContactsHandler()
+            });
         console.log(this.state.offset)
 
         this.setState({contacts: ''})
@@ -44,9 +53,9 @@ class AuthPage extends Component {
     }
     
     showContactsHandler = () => {
-        this.setState({backdrop: true})
-        this.setState({showContacts: true})
         console.log(this.state.offset)
+        this.setState({isLoading: true})
+        
 
         const requestBody = {
             query: `
@@ -55,6 +64,8 @@ class AuthPage extends Component {
                   name
                   email
                   message
+                  _id
+                  createdAt
                 }
               }
                 `
@@ -78,6 +89,8 @@ class AuthPage extends Component {
             console.log(resData);
             const contacts = resData.data.contacts
             this.setState({contacts: contacts, isLoading: false})
+            this.setState({backdrop: true})
+            this.setState({showContacts: true})
             console.log(this.state.contacts)
             // this.fetchTests();
         })
@@ -190,9 +203,10 @@ class AuthPage extends Component {
                     <button type="button" onClick={this.switchModeHandler}>Switch to {this.state.isLogin ? 'Signup' : 'Login'}</button>
                 </div>
             </form>
+            {this.state.isLoading && <Spinner />}
             <div className='flex-container hide-later'>
                 <div className='fake-button' onClick={this.showContactsHandler}>Show contacts</div>
-                {this.state.showContacts && <ModalContacts title="a long title" contacts={this.state.contacts} onNext={this.nextHandler} />}
+                {this.state.showContacts && <ModalContacts title="a long title" contacts={this.state.contacts} onNext={this.nextHandler} loading={this.state.isLoading} />}
             </div>
         </div>
         )
