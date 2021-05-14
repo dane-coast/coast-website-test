@@ -47,6 +47,10 @@ class LabServicesPage extends Component {
     startSearchingTestHandler = (e) => {
         e.preventDefault();
         // console.log(e)
+        if (this.state.searchThis === "") {
+            console.log('no')
+            return
+        }
         this.setState({searching: true});
         this.setState({isLoading: true});
         const searchFor = this.state.searchThis 
@@ -87,7 +91,7 @@ class LabServicesPage extends Component {
             console.log('resData')
             console.log(resData);
             const tests = resData.data.searchTests
-            this.setState({tests: tests, isLoading: false})
+            this.setState({tests: tests, isLoading: false, target:'', searchThis: ''})
             // this.fetchTests();
         })
         .catch(err => {
@@ -182,7 +186,8 @@ class LabServicesPage extends Component {
                         <div className="container">
                             <div className='center'>
                                 <div className="modal-container">
-                                    {this.state.searching && <ModalTests title="lab tests" onCancel={this.testModalCancelHandler} loading={this.state.isLoading} tests={this.state.tests}>
+                                    {console.log(this.state)}
+                                    {this.state.searching  && <ModalTests title="lab tests" onCancel={this.testModalCancelHandler} loading={this.state.isLoading} tests={this.state.tests}>
                                         </ModalTests>}
                                     {!this.state.searching && this.state.searchModal && <ModalTestSearch change={this.updateSearchThis} submitHandler={this.startSearchingTestHandler} title={this.state.target}/>}
 
@@ -192,7 +197,6 @@ class LabServicesPage extends Component {
                             <div className="lab-service" id="5507" style={{textAlign:"left"}}>
                                 <h2 id="covid-19" onClick={this.startModalTestSearchHandler}><span>COVID-19</span></h2>
                                 {/* remove this */}
-                                <p>{this.state.searchThis}</p>
                                 <div className="labPage">
                                     <p>Coast Diagnostics is a leader in providing fast, accurate COVID-19 results to practitioners across the Gulf Coast region. We provide one of the best turnaround times in the industry, with results reported in 24-48 hours.
                                     </p>
