@@ -13,7 +13,7 @@
 .spacer {
     flex-grow: 1;
     width: 100%;
-    background: orange;
+    /* background: orange; */
     /* height: 15px;; */
 }
 
