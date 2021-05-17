@@ -27,7 +27,7 @@ const newsArticles = [
             <p>COVID Antibody Testing is now available at Coast Diagnostics at 4674 Airport Boulevard, Suite C in Mobile, Alabama. Call <a href="tel:251-459-8405">251-459-8405</a>.<br /></p>
             `
     },
-    {   
+    {
         id: "na2",
         title: "Labs Under Strain Of Large Covid Test Load",
         date: "July 15th, 2020",
@@ -51,7 +51,7 @@ const newsArticles = [
             <p>“We’ve just got to do a better job of communicating to patients to have patience and let physicians do what they do, let us run as many tests as we can run and max the system,” he said. “But we will get the results back to you in a timely fashion of what the machines allow us to do.”</p>
             <p>In other words, Ward said, don’t call the clinic for test results, wait for the clinic to call you.</p>
         `,
-        image:  {
+        image: {
             src: '/images/wlox-thumbnail.jpg',
             alt: "WLOX Mobile, AL - July 15, 2020"
         }
@@ -90,36 +90,36 @@ class NewsPage extends Component {
 
     }
     showMoreHandler = (event) => {
-        this.setState({searching: true});
-        this.setState({articleModal: true});
+        this.setState({ searching: true });
+        this.setState({ articleModal: true });
         console.log(event)
         let findthis = event.target.attributes['data-id']['value']
         const found = newsArticles.find(article => article.id == findthis);
-        this.setState({target: found})
+        this.setState({ target: found })
     }
     backdropClickHandler = () => {
         // can add more functionality here
-        this.setState({searching: false});
-        this.setState({articleModal: false});
+        this.setState({ searching: false });
+        this.setState({ articleModal: false });
         // this.setState({searchThis: ''});
-      };
-      
+    };
+
     modalCancelHandler = () => {
-        this.setState({searching: false});
-        this.setState({articleModal: false});
+        this.setState({ searching: false });
+        this.setState({ articleModal: false });
     }
     findArticle = (e) => {
-        
+
     }
 
 
     render() {
-        return(
+        return (
             <React.Fragment>
-                <Hero currentPage={this.props.location}/>
-                {this.state.searching &&  <Backdrop  click={this.backdropClickHandler}/>}
+                <Hero currentPage={this.props.location} />
+                {this.state.searching && <Backdrop click={this.backdropClickHandler} />}
                 {this.state.searchModal && <Backdrop click={this.backdropClickHandler} />}
-                
+
                 <main role="main">
 
                     <div className="triangle" id="aboutTriangle1">
@@ -127,31 +127,31 @@ class NewsPage extends Component {
                     </div>
                     <section id="news">
                         <div className="container">
-                        {this.state.articleModal && <ModalArticle title="lab tests" onCancel={this.modalCancelHandler}  title="test news" article={this.state.target} classes="modal show">
-                                        </ModalArticle>}
-                        {newsArticles.map(article => {
-                            return(
-                                <article key={article.id}>
-                                    <div className="blog">
-                                        <h3 className="post-title">{article.title}</h3>
+                            {this.state.articleModal && <ModalArticle title="lab tests" onCancel={this.modalCancelHandler} title="test news" article={this.state.target} classes="modal show">
+                            </ModalArticle>}
+                            {newsArticles.map(article => {
+                                return (
+                                    <article key={article.id}>
+                                        <div className="blog">
+                                            <h3 className="post-title">{article.title}</h3>
                                             <span className="date">{article.date}</span><br />
-                                        <div className="blog-main">
-                                            <div className="post-summary">
-                                            <Markup content={article.summary} />
+                                            <div className="blog-main">
+                                                <div className="post-summary">
+                                                    <Markup content={article.summary} />
+                                                </div>
                                             </div>
-                                        </div>                                     
-                                        <div className='sub-flex'>
-                                            <div className="half-spacer"></div>
-                                            <a className="button readmore" onClick={this.showMoreHandler} data-id={article.id} title="Read More...">Read More...</a>
-                                           
-                                            {article.image && 
-                                                <React.Fragment>                                           
-                                                <img src={process.env.PUBLIC_URL + article.image.src} alt={article.image.alt} />
-                                                <div className="spacer"></div>
-                                                </React.Fragment>}
+                                            <div className='sub-flex'>
+                                                <div className="half-spacer"></div>
+                                                <a className="button readmore" onClick={this.showMoreHandler} data-id={article.id} title="Read More...">Read More...</a>
+
+                                                {article.image &&
+                                                    <React.Fragment>
+                                                        <img src={process.env.PUBLIC_URL + article.image.src} alt={article.image.alt} />
+                                                        <div className="spacer"></div>
+                                                    </React.Fragment>}
+                                            </div>
                                         </div>
-                                    </div>
-                                </article>
+                                    </article>
                                 )
                             })}
                             {/* <article>
@@ -215,7 +215,8 @@ class NewsPage extends Component {
                     </section>
                 </main>
             </React.Fragment>
-        )}
+        )
+    }
 }
 
 export default NewsPage;
