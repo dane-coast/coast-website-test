@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/coast-website-test/static/css/main.1c1b9e35.chunk.css",
-    "main.js": "/coast-website-test/static/js/main.7eb97889.chunk.js",
-    "main.js.map": "/coast-website-test/static/js/main.7eb97889.chunk.js.map",
+    "main.js": "/coast-website-test/static/js/main.bf929521.chunk.js",
+    "main.js.map": "/coast-website-test/static/js/main.bf929521.chunk.js.map",
     "runtime-main.js": "/coast-website-test/static/js/runtime-main.7fa97455.js",
     "runtime-main.js.map": "/coast-website-test/static/js/runtime-main.7fa97455.js.map",
     "static/js/2.d2e65614.chunk.js": "/coast-website-test/static/js/2.d2e65614.chunk.js",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.7fa97455.js",
     "static/js/2.d2e65614.chunk.js",
     "static/css/main.1c1b9e35.chunk.css",
-    "static/js/main.7eb97889.chunk.js"
+    "static/js/main.bf929521.chunk.js"
   ]
 }
