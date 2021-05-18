@@ -6,6 +6,8 @@ import ModalContacts from '../components/Modal/ModalContacts'
 import Backdrop from '../components/Backdrop/Backdrop';
 import Spinner from '../components/Spinner/Spinner';
 
+import { NavLink } from 'react-router-dom';
+
 class AuthPage extends Component {
 
     state = {
@@ -208,6 +210,14 @@ class AuthPage extends Component {
                     <div className='fake-button' onClick={this.showContactsHandler}>Show contacts</div>
                     {this.state.showContacts && <ModalContacts title="a long title" contacts={this.state.contacts} onNext={this.nextHandler} loading={this.state.isLoading} />}
                 </div>
+                <ul>
+                    <li>
+                        <NavLink to="/addnews">Add news blog</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/editnews">Edit news page</NavLink>
+                    </li>
+                </ul>
             </div>
         )
     }
