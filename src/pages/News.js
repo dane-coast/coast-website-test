@@ -4,8 +4,7 @@ import Hero from '../components/Hero/Hero';
 import ModalArticle from '../components/Modal/ModalArticle';
 import Backdrop from '../components/Backdrop/Backdrop';
 import { Markup } from 'interweave';
-
-
+import { localDateTime } from '../util/localDateTime';
 import './News.css';
 
 
@@ -51,10 +50,9 @@ const newsArticles = [
             <p>“We’ve just got to do a better job of communicating to patients to have patience and let physicians do what they do, let us run as many tests as we can run and max the system,” he said. “But we will get the results back to you in a timely fashion of what the machines allow us to do.”</p>
             <p>In other words, Ward said, don’t call the clinic for test results, wait for the clinic to call you.</p>
         `,
-        image: {
-            src: '/images/wlox-thumbnail.jpg',
-            alt: "WLOX Mobile, AL - July 15, 2020"
-        }
+        imageSource: '/images/wlox-thumbnail.jpg',
+        imageAlt: "WLOX Mobile, AL - July 15, 2020",
+
     },
     {
         id: "na3",
@@ -66,13 +64,18 @@ const newsArticles = [
         content: `
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of...
         `,
-        image: {
-            src: '/images/testingInAction.jpg',
-            alt: "Testing In Action"
-        }
-    }
+        imageSource: '/images/testingInAction.jpg',
+        imageAlt: "Testing In Action"
 
+    }
 ]
+
+const convertDate = (ts) => {
+    let date = localDateTime(ts)
+    let newdate = date.dateString
+    return newdate
+}
+
 
 class NewsPage extends Component {
 
@@ -83,20 +86,126 @@ class NewsPage extends Component {
         this.searchThisElRef = React.createRef();
         this.state = {
             searching: false,
-            isLoading: false,
+            isLoading: true,
             articleModal: false,
-            target: ''
+            target: '',
+            mounted: false
         };
 
     }
+
+
+    fetchNews() {
+        this.setState({ isLoading: true });
+        const requestBody = {
+            query: `            
+                query {
+                    newsBlogs{
+                    _id
+                    title
+                    link
+                    linkTitle
+                    content
+                    summary
+                    date
+                    }
+                }
+            `
+        };
+
+        // use fetch to send data -> could also use axios or other
+        // fetch('http://localhost:8000/graphql',
+        // change this to heroku 
+        //fetch('https://mighty-coast-19334.herokuapp.com/graphql
+        fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+            method: 'POST',
+            body: JSON.stringify(requestBody),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (res.status !== 200 && res.status !== 21) {
+                    throw new Error('Failed')
+                }
+                return res.json();
+            })
+            .then(resData => {
+                // console.log(resData);
+                const newsBlogs = resData.data.newsBlogs
+                this.setState({ newsBlogs: newsBlogs, isLoading: false });
+            })
+            .catch(err => {
+                console.log(err)
+                this.setState({ isLoading: false });
+            })
+
+    }
+    componentDidMount() {
+        this.fetchNews()
+        this.setState({ mounted: true })
+    }
+
+
     showMoreHandler = (event) => {
         this.setState({ searching: true });
-        this.setState({ articleModal: true });
-        console.log(event)
+        // this.setState({ articleModal: true });
+        // console.log(event)
+        // console.log(event.target.attributes)
+
         let findthis = event.target.attributes['data-id']['value']
-        const found = newsArticles.find(article => article.id == findthis);
-        this.setState({ target: found })
+        // console.log('findthis')
+        // console.log(findthis)
+        const requestBody = {
+            query: `
+                query{
+                    newsBlog(id: "${findthis}") {
+                        _id
+                        title
+                        summary
+                        link
+                        linkTitle
+                        date
+                        content
+                    }
+
+                }
+            `
+        }
+        // const found = newsArticles.find(article => article.id == findthis);
+        // change this to heroku 
+        // fetch('https://mighty-coast-19334.herokuapp.com/graphql'
+        console.log(requestBody)
+        try {
+            fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+                method: 'POST',
+                body: JSON.stringify(requestBody),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+                .then(res => {
+                    if (res.status !== 200 && res.status !== 21) {
+                        throw new Error('Failed')
+                    }
+                    return res.json();
+                })
+                .then(resData => {
+                    console.log('resData')
+                    console.log(resData);
+                    const newsBlog = resData.data.newsBlog
+                    this.setState({ newsBlog: newsBlog, isLoading: false, articleModal: true })
+                    console.log(this.state.newsBlog)
+                    // this.fetchTests();
+                })
+
+        } catch (err) {
+            throw err
+        }
     }
+
+    // this.setState({ target: found })
+
     backdropClickHandler = () => {
         // can add more functionality here
         this.setState({ searching: false });
@@ -126,35 +235,37 @@ class NewsPage extends Component {
                         <h2 className="triangle tight">News &amp; Articles</h2>
                     </div>
                     <section id="news">
-                        <div className="container">
-                            {this.state.articleModal && <ModalArticle title="lab tests" onCancel={this.modalCancelHandler} title="test news" article={this.state.target} classes="modal show">
-                            </ModalArticle>}
-                            {newsArticles.map(article => {
-                                return (
-                                    <article key={article.id}>
-                                        <div className="blog">
-                                            <h3 className="post-title">{article.title}</h3>
-                                            <span className="date">{article.date}</span><br />
-                                            <div className="blog-main">
-                                                <div className="post-summary">
-                                                    <Markup content={article.summary} />
+                        {!this.state.isLoading &&
+                            <div className="container">
+                                {this.state.articleModal && <ModalArticle title={this.state.newsBlog.title} onCancel={this.modalCancelHandler} article={this.state.newsBlog} classes="modal show">
+                                </ModalArticle>}
+                                {this.state.newsBlogs.map(blog => {
+                                    return (
+                                        <article key={blog._id}>
+                                            {/* {console.log(blog._id)} */}
+                                            <div className="blog">
+                                                <h3 className="post-title">{blog.title}</h3>
+                                                <span className="date">{convertDate(blog.date)}</span><br />
+                                                <div className="blog-main">
+                                                    <div className="post-summary">
+                                                        <Markup content={blog.summary} />
+                                                    </div>
+                                                </div>
+                                                <div className='sub-flex'>
+                                                    <div className="half-spacer"></div>
+                                                    <a className="button readmore" onClick={this.showMoreHandler} data-id={blog._id} title="Read More...">Read More...</a>
+
+                                                    {blog.imageSource &&
+                                                        <React.Fragment>
+                                                            <img src={process.env.PUBLIC_URL + blog.imageSource} alt={blog.imageAlt} />
+                                                            <div className="spacer"></div>
+                                                        </React.Fragment>}
                                                 </div>
                                             </div>
-                                            <div className='sub-flex'>
-                                                <div className="half-spacer"></div>
-                                                <a className="button readmore" onClick={this.showMoreHandler} data-id={article.id} title="Read More...">Read More...</a>
-
-                                                {article.image &&
-                                                    <React.Fragment>
-                                                        <img src={process.env.PUBLIC_URL + article.image.src} alt={article.image.alt} />
-                                                        <div className="spacer"></div>
-                                                    </React.Fragment>}
-                                            </div>
-                                        </div>
-                                    </article>
-                                )
-                            })}
-                            {/* <article>
+                                        </article>
+                                    )
+                                })}
+                                {/* <article>
                                 <div className="blog">
                                     <h3 className="post-title">Coast Diagnostics in the News: COVID Antibody Testing</h3>
                                     <span className="date">January 5th, 2021</span><br />
@@ -211,7 +322,7 @@ class NewsPage extends Component {
                                     </div>
                                 </div>
                             </article> */}
-                        </div>
+                            </div>}
                     </section>
                 </main>
             </React.Fragment>

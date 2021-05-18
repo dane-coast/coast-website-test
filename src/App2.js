@@ -13,13 +13,15 @@ import NewsPage from './pages/News';
 import CareersPage from './pages/Careers';
 import HomePage from './pages/Home';
 import AuthPage from './pages/Auth';
-import Footer from './components/Footer/Footer'
+import Footer from './components/Footer/Footer';
+import NewEntry from './pages/NewEntry';
+import AddNewsBlog from './pages/addNewsBlog';
 
 import './App2.css';
 // import Hero from './components/Hero/Hero';
 import SideDrawer from './components/SideDrawer/SideDrawer'
 import Backdrop from './components/Backdrop/Backdrop'
-  
+
 // ReactDOM.render(<Router basename={process.env.PUBLIC_URL}>< App2 /></Router>, document.getElementById('root'));  
 
 
@@ -35,11 +37,11 @@ class App2 extends React.Component {
 
   backdropClickHandler = () => {
     // can add more functionality here
-    this.setState({sideDrawerOpen: false});
+    this.setState({ sideDrawerOpen: false });
   };
 
   sideLinkClickHandler = () => {
-    this.setState({sideDrawerOpen: false})
+    this.setState({ sideDrawerOpen: false })
   }
 
   render() {
@@ -49,40 +51,42 @@ class App2 extends React.Component {
 
     if (this.state.sideDrawerOpen) {
       // sideDrawer= <SideDrawer />;
-      backdrop = <Backdrop click={this.backdropClickHandler}/>
+      backdrop = <Backdrop click={this.backdropClickHandler} />
     }
 
     return (
-        <div style={{height: "100%"}}>
-          <BrowserRouter>
-            <React.Fragment>
-              <MainNavigation drawerClickHandler={this.drawerToggleClickHandler} />
-              <SideDrawer click={this.sideLinkClickHandler} show={this.state.sideDrawerOpen} />
-              {backdrop}
-              <div className="coast-body">
-                  <div id="coast-body">
-                    <div className="vertical-flex">
-                        <Switch>
-                            <Redirect from='/coast-website-test/' to='/' />
-                            <Redirect from='/home/' to='/' />
-                            <Route path="/" component={HomePage} exact/>
-                            <Route path="/about-us" component={AboutUsPage} />
-                            <Route path="/careers" component={CareersPage} />
-                            <Route path="/contact" component={ContactPage} />
-                            <Route path="/lab-services" component={LabServicesPage} />
-                            <Route path="/news" component={NewsPage} />
-                            <Route path="/login" component={AuthPage} />
-                        </Switch>
-                    </div>
-                    <div className="spacer"></div>
-                      {/* <Hero /> */}
-                        
-                    <Footer />
-                  </div>
+      <div style={{ height: "100%" }}>
+        <BrowserRouter>
+          <React.Fragment>
+            <MainNavigation drawerClickHandler={this.drawerToggleClickHandler} />
+            <SideDrawer click={this.sideLinkClickHandler} show={this.state.sideDrawerOpen} />
+            {backdrop}
+            <div className="coast-body">
+              <div id="coast-body">
+                <div className="vertical-flex">
+                  <Switch>
+                    <Redirect from='/coast-website-test/' to='/' />
+                    <Redirect from='/home/' to='/' />
+                    <Route path="/" component={HomePage} exact />
+                    <Route path="/about-us" component={AboutUsPage} />
+                    <Route path="/careers" component={CareersPage} />
+                    <Route path="/contact" component={ContactPage} />
+                    <Route path="/lab-services" component={LabServicesPage} />
+                    <Route path="/news" component={NewsPage} />
+                    <Route path="/login" component={AuthPage} />
+                    <Route path="/editnews" component={NewEntry} />
+                    <Route path="/addnews" component={AddNewsBlog} />
+                  </Switch>
+                </div>
+                <div className="spacer"></div>
+                {/* <Hero /> */}
+
+                <Footer />
               </div>
-            </React.Fragment>
-          </BrowserRouter>
-        </div>
+            </div>
+          </React.Fragment>
+        </BrowserRouter>
+      </div>
     );
   }
 }
