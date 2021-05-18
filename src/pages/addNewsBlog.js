@@ -68,7 +68,7 @@ class AddNewsBlog extends Component {
     // use fetch to send data -> could also use axios or other
     // change this back to heroku  
     //fetch('https://mighty-coast-19334.herokuapp.com/graphql',
-    fetch('http://localhost:8000/graphql', {
+    fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
