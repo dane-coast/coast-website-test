@@ -12,6 +12,8 @@ class AddNewsBlog extends Component {
     this.linkTitleEl = React.createRef();
     this.linkEl = React.createRef();
     this.dateEl = React.createRef();
+    this.imageSourceEl = React.createRef();
+    this.imageAltEl = React.createRef();
 
     this.state = {
       editorState: EditorState.createEmpty(),  // this will create an empty text box
@@ -37,6 +39,8 @@ class AddNewsBlog extends Component {
     const alink = this.linkEl.current.value;
     const adate = this.dateEl.current.value;
     const content = this.state.editorContentHtml;
+    const imageSource = this.imageSourceEl.current.value;
+    const imageAlt = this.imageAltEl.current.value;
     let cleanContent = content.replace(/(\r\n|\n|\r)/gm, "");
     let allStuff = {
       title: title,
@@ -44,7 +48,10 @@ class AddNewsBlog extends Component {
       linkTitle: linkTitle,
       alink: alink,
       adate: adate,
-      content: cleanContent
+      content: cleanContent,
+      imageSource: imageSource,
+      imageAlt: imageAlt
+
     }
     console.log(allStuff)
     console.log(allStuff.content)
@@ -58,6 +65,8 @@ class AddNewsBlog extends Component {
           content: "${cleanContent}",
           summary: "${summary}",
           date:"${adate}",
+          imageSource: "${imageSource}",
+          imageAlt: "${imageAlt}"
         }) {
           _id
           title
@@ -68,7 +77,7 @@ class AddNewsBlog extends Component {
     // use fetch to send data -> could also use axios or other
     // change this back to heroku  
     //fetch('https://mighty-coast-19334.herokuapp.com/graphql',
-    fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+    fetch('http://localhost:8000/graphql', {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
@@ -125,6 +134,12 @@ class AddNewsBlog extends Component {
             </div>
             <div className="form-control">
               <input type="datetime-local" id="newsdate" ref={this.dateEl} placeholder="Date"></input>
+            </div>
+            <div className="form-control">
+              <input type="text" id="imageSource" ref={this.imageSourceEl} placeholder="image Source"></input>
+            </div>
+            <div className="form-control">
+              <input type="text" id="imageAlt" ref={this.imageAltEl} placeholder="image alt"></input>
             </div>
             {/* <div className="form-control">
               <input type="text" id="newscontent" ref={this.contentEl} placeholder="content"></input>

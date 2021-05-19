@@ -217,6 +217,9 @@ class AuthPage extends Component {
                     <li>
                         <NavLink to="/editnews">Edit news page</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/store">Store page</NavLink>
+                    </li>
                 </ul>
             </div>
         )

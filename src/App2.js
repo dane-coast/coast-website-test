@@ -5,6 +5,7 @@ import './css/styles2.css';
 import './css/bulma.css';
 import './css/font.css';
 import MainNavigation from './components/Navigation/MainNavigation';
+import "@fontsource/metropolis";
 
 import AboutUsPage from './pages/AboutUs';
 import ContactPage from './pages/Contact';
@@ -16,6 +17,7 @@ import AuthPage from './pages/Auth';
 import Footer from './components/Footer/Footer';
 import NewEntry from './pages/NewEntry';
 import AddNewsBlog from './pages/addNewsBlog';
+import Store from './pages/Store';
 
 import './App2.css';
 // import Hero from './components/Hero/Hero';
@@ -55,7 +57,7 @@ class App2 extends React.Component {
     }
 
     return (
-      <div style={{ height: "100%" }}>
+      <div className='the-root' style={{ height: "100%" }}>
         <BrowserRouter>
           <React.Fragment>
             <MainNavigation drawerClickHandler={this.drawerToggleClickHandler} />
@@ -76,6 +78,7 @@ class App2 extends React.Component {
                     <Route path="/login" component={AuthPage} />
                     <Route path="/editnews" component={NewEntry} />
                     <Route path="/addnews" component={AddNewsBlog} />
+                    <Route path="/store" component={Store} />
                   </Switch>
                 </div>
                 <div className="spacer"></div>

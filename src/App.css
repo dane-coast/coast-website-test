@@ -1,3 +1,11 @@
 .coast-body {
   margin: 4rem 0;
 }
+
+body {
+  font-family:"Metropolis",sans-serif;
+}
+
+.the-root {
+  font-family: "Metropolis";
+}

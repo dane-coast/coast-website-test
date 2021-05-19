@@ -4,7 +4,7 @@
     border: 1px solid rgb(0, 102, 255);
     box-shadow: 0 2px 8px rgba(0,0,0,0.26);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -23,4 +23,7 @@
 }
 .tests__list-item p {
     margin: 0;
+}
+.center {
+    text-align: center;
 }

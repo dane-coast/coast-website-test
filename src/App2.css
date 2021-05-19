@@ -17,6 +17,10 @@
     /* height: 15px;; */
 }
 
+/* .the-root {
+    font-family: "Metropolis";
+  } */
+
 @media (max-width: 768px) {
     .vertical-flex {
         min-height: 40vh;

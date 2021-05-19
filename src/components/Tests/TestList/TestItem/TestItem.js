@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Modal from '../../../Modal/Modal';
 import Spinner from '../../../Spinner/Spinner'
 
@@ -7,7 +7,7 @@ import './TestItem.css'
 
 class TestItem extends Component {
     state = {
-        details:this.props.testId,
+        details: this.props.testId,
         showDetails: false,
         isLoading: false,
     }
@@ -21,8 +21,8 @@ class TestItem extends Component {
     showDetailHandler = () => {
         // this.setState()
         // console.log(testId)
-        this.setState({details: this.props.testId});
-        this.setState({isLoading: true});
+        this.setState({ details: this.props.testId });
+        this.setState({ isLoading: true });
         console.log(this.state.details);
         console.log(this.props);
 
@@ -75,42 +75,42 @@ class TestItem extends Component {
                 'Content-Type': 'application/json',
             }
         })
-        .then(res => {
-            if (res.status !== 200 && res.status !==21) {
-                throw new Error('Failed')
-            }
-            return res.json();
-        })
-        .then(resData => {
-            console.log('resData')
-            console.log(resData);
-            const test = resData.data.test
-            this.setState({test: test, isLoading: false, showDetails: true})
-            // this.fetchTests();
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            .then(res => {
+                if (res.status !== 200 && res.status !== 21) {
+                    throw new Error('Failed')
+                }
+                return res.json();
+            })
+            .then(resData => {
+                console.log('resData')
+                console.log(resData);
+                const test = resData.data.test
+                this.setState({ test: test, isLoading: false, showDetails: true })
+                // this.fetchTests();
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
     }
 
     render() {
         return (
-        <React.Fragment>
-             <li key={this.props.testId} className="tests__list-item">
-            <div>
-                
-                <h1>{this.props.title}</h1>
-                <h2>{this.props.CPT}</h2>
-            </div>
-            <div>
-                <p>{this.props.description}</p> 
-                <div className="btn" onClick={this.showDetailHandler}>View Details</div>        
-            </div>
-        </li>
-        {this.state.showDetails && <Modal loading={this.state.isLoading} test={this.state.test}></Modal>}
-        </React.Fragment>
-       
+            <React.Fragment>
+                <li key={this.props.testId} className="tests__list-item">
+                    <div>
+
+                        <h1>{this.props.title}</h1>
+                        <h2>{this.props.CPT}</h2>
+                    </div>
+                    <div>
+                        <p>{this.props.description}</p>
+                        <div className="btn center" onClick={this.showDetailHandler}>View Details</div>
+                    </div>
+                </li>
+                {this.state.showDetails && <Modal loading={this.state.isLoading} test={this.state.test}></Modal>}
+            </React.Fragment>
+
         );
     }
 }
@@ -129,7 +129,7 @@ export default TestItem;
 //                 <button className="btn">View Details</button>        
 //         </div>
 //     </li>
-    
+
 
 // );
 
@@ -157,6 +157,6 @@ export default TestItem;
 //     frequency
 //     department
 //     expectedTAT
-    
+
 //   }
 // }}
