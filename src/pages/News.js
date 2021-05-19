@@ -117,7 +117,7 @@ class NewsPage extends Component {
         // fetch('http://localhost:8000/graphql',
         // change this to heroku 
         //fetch('https://mighty-coast-19334.herokuapp.com/graphql
-        fetch('http://localhost:8000/graphql', {
+        fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: {
@@ -179,7 +179,7 @@ class NewsPage extends Component {
         // fetch('https://mighty-coast-19334.herokuapp.com/graphql'
         console.log(requestBody)
         try {
-            fetch('http://localhost:8000/graphql', {
+            fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
                 method: 'POST',
                 body: JSON.stringify(requestBody),
                 headers: {
