@@ -327,14 +327,14 @@ section {
   display: block;
 }
 
-body,
+/* body,
 button,
 input,
 optgroup,
 select,
 textarea {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
+} */
 
 code,
 pre {

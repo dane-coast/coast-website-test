@@ -34,10 +34,12 @@ body {
 #coast-body h1, #coast-body h2, #coast-body h3, #coast-body h4{
     /* color:#209bac; */
     font-weight:bold;
+    color: #042464;
+    font-size: 2.5rem;
 }
-#coast-body h2{
-    font-size:2.2rem;
-}
+/* #coast-body h2{ */
+    /* font-size:2.2rem;
+} */
 #coast-body h2.callout-heading{
     font-size:2.8rem;
 }

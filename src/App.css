@@ -2,10 +2,45 @@
   margin: 4rem 0;
 }
 
-body {
-  font-family:"Metropolis",sans-serif;
+html{
+  height: 100%;
+  height: auto;
+  
+  
 }
+body .color-gradient{
+  /* min-height: %; */
+  /* background-attachment: fixed; */
+  /* background-size: cover; */
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+  
+  /* background-repeat:no-repeat;
+  background: linear-gradient(
+    to bottom,
+    rgba(4,36,100,.7)0%,
+    rgba(0,134,179,.4)100%);
+  transform: translateY(-5rem);
+  height: 100%; */
 
+  font-family:"Metropolis",sans-serif;
+  /* margin-bottom: 1rem; */
+  
+  /* height: calc(auto-3rem)'' */
+}
 .the-root {
   font-family: "Metropolis";
+  
+}
+.coast-body .color-gradient {
+  transform: translateY(-1.5rem);
+  padding-bottom:60px;
+  margin-bottom: -4.5rem;
+}
+#coast-body {
+  margin-bottom: -5rem;
+}
+.coast-body .color-gradient .vertical-flex {
+  height: 90%;
 }

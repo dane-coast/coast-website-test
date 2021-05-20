@@ -6,3 +6,27 @@
   grid-gap: 20px;
   font-family: "Metropolis";
 }
+
+@media (max-width: 1279px) {
+  .card-list {
+    width: 90vw;
+    grid-template-columns: 1fr 1fr 1fr;
+
+  }
+}
+
+@media (max-width: 991px) {
+  .card-list {
+    width: 90vw;
+    grid-template-columns: 1fr 1fr;
+
+  }
+}
+
+@media (max-width: 599px) {
+  .card-list {
+    width: 85vw;
+    grid-template-columns: 1fr;
+
+  }
+}

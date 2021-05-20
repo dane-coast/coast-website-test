@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { CardList } from '../components/CardList/CardList'
-
+import './Store.css'
 
 let products = [
   {
@@ -58,7 +58,7 @@ let products = [
     description: 'Vacuette Quickshield Safety Tube Holder',
     title: 'Needle Guard',
     packageQty: 50,
-    category: 'Phlebotomy',
+    category: 'Collection',
     image: '/products/450230.jpeg'
   },
 
@@ -67,7 +67,7 @@ let products = [
     description: 'Safety Blood Collection (butterfly) with Luer Adapter',
     title: '23G Butterfly Collection',
     packageQty: 50,
-    category: 'Phlebotomy',
+    category: 'Collection',
     dimensions: "23G x .75”",
     image: '/products/450082.jpeg'
   },
@@ -76,7 +76,7 @@ let products = [
     description: '21 Gauge Sample Needle',
     title: 'Collection Needle',
     packageQty: 50,
-    category: 'Phlebotomy',
+    category: 'Collection',
     dimensions: "21G x  1”",
     image: '/products/450072.jpeg'
   },
@@ -86,7 +86,7 @@ let products = [
     description: 'Butterfly Safety Blood Collection with Luer Adapter ',
     title: '21G Butterfly Collection Set',
     packageQty: 50,
-    category: 'Phlebotomy',
+    category: 'Collection',
     dimensions: "21G x 0.75”",
     image: '/products/BD367281.jpeg'
   },
@@ -96,7 +96,7 @@ let products = [
     description: 'Curad Sensitive Skin Paper Tape, 2’x10 yds per roll (6 rolls per pkg)',
     title: 'Adhesive Tape',
     packageQty: 6,
-    category: 'Phlebotomy',
+    category: 'Collection',
     dimensions: "2”x10yds",
     image: '/products/884389809443.jpeg'
   },
@@ -105,7 +105,7 @@ let products = [
     description: 'Disposable Tourniquet. Latex Free. Synthetic Rubber (25 strips per pkg)',
     title: 'Tourniquet',
     packageQty: 25,
-    category: 'Phlebotomy',
+    category: 'Collection',
     image: '/products/840053.jpeg'
   },
   {
@@ -113,7 +113,7 @@ let products = [
     description: 'Sterile Adhesive Bandage',
     title: 'Sterile Adhesive Bandage',
     packageQty: 100,
-    category: 'Phlebotomy',
+    category: 'Collection',
     dimensions: "¾” x 3”",
     image: '/products/PRM25500.jpeg'
   },
@@ -122,7 +122,7 @@ let products = [
     description: 'Tan CoFlex/Coban Bandage 1”x5yrs. Latex free. Tan',
     title: 'Cohesive Foam Bandage',
     packageQty: 5,
-    category: 'Phlebotomy',
+    category: 'Collection',
     dimensions: "1”x5yds",
     image: '/products/MDS089001.jpeg'
   },
@@ -132,7 +132,7 @@ let products = [
     description: '12 ply Sterile Sponge Gauze 2x2',
     title: 'Sterile Sponge Gauze',
     packageQty: 50,
-    category: 'Phlebotomy',
+    category: 'Collection',
     dimensions: "2”x2”",
     image: '/products/PRM21224.jpeg'
   },
@@ -141,7 +141,7 @@ let products = [
     description: 'Urine Collection Cup. Vacuette w/ integrated transfer device',
     title: 'Urine Collection Cup',
     packageQty: 25,
-    category: 'Phlebotomy',
+    category: 'Urine',
     volume: "100ml",
     image: '/products/724310.jpeg'
   },
@@ -150,7 +150,7 @@ let products = [
     description: 'No additive Urine Tube 10 ml. Yellow top.',
     title: 'Yellow Top Urine Tube',
     packageQty: 50,
-    category: 'Phlebotomy',
+    category: 'Urine',
     volume: "10ml",
     dimensions: "16x100",
     image: '/products/455007.jpeg'
@@ -160,7 +160,7 @@ let products = [
     description: 'Sterile Urine Specimen Cup w/ temperature strip (25 per pkg)',
     title: 'Temperature Urine Cup',
     packageQty: 25,
-    category: 'Phlebotomy',
+    category: 'Urine',
     image: '/products/tnrhxk.jpg'
   },
   {
@@ -168,7 +168,7 @@ let products = [
     description: 'Sterile Urine Transfer Device, individually wrapped.',
     title: 'Urine Transfer Device',
     packageQty: 100,
-    category: 'Phlebotomy',
+    category: 'Urine',
     image: '/products/CHBIWUS100-C.jpeg'
   },
   {
@@ -176,7 +176,7 @@ let products = [
     description: 'Graduated Specimen Pan. Urine or stool.',
     title: 'Specimen Collector Pan',
     packageQty: 10,
-    category: 'Phlebotomy',
+    category: 'Urine',
     image: '/products/DYND36600.jpeg'
   },
   {
@@ -185,7 +185,7 @@ let products = [
     title: 'Transfer Pipette',
     packageQty: 100,
     volume: "3ml",
-    category: 'Phlebotomy',
+    category: 'Lab',
     image: '/products/CT2000-CUT.jpeg'
   },
   {
@@ -193,7 +193,7 @@ let products = [
     description: 'DNA Swab w NTM, Sterile. Elongated tip. Polystyrene handle w/ molded break point. 30mm from end of tip',
     title: 'Sterile Collection Swab',
     packageQty: 50,
-    category: 'Phlebotomy',
+    category: 'Collection',
     image: '/products/P25-3606-2.jpeg'
   },
 
@@ -219,7 +219,7 @@ class StorePage extends Component {
 
   render() {
     return (
-      <div>
+      <div className='color-gradient'>
         <h1>Store Page</h1>
         <CardList products={this.state.products} />
       </div>
