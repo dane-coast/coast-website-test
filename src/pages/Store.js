@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { CardList } from '../components/CardList/CardList'
 import './Store.css'
+import { SearchBox } from '../components/SearchBox/SearchBox'
 
 let products = [
   {
@@ -213,6 +214,10 @@ class StorePage extends Component {
     }
   }
 
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value })
+  }
+
   componentDidMount() {
     this.setState({ products: products })
   }
@@ -221,6 +226,13 @@ class StorePage extends Component {
     return (
       <div className='color-gradient'>
         <h1>Store Page</h1>
+        <div className="center">
+          <SearchBox
+            placeholder='Search Products'
+            handleChange={this.handleChange}
+          />
+
+        </div>
         <CardList products={this.state.products} />
       </div>
     )

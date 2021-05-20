@@ -5,7 +5,7 @@
   /* background-color: #6aaec5; */
   /* background-color: #209bac; */
   background-color: #BBE5F3;
-  border: 1px solid grey;
+  border: 1px solid #209bac;;;
   border-radius: 5px;
   padding: 15px;
   cursor: pointer;
@@ -14,6 +14,7 @@
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
   color: black;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.26);
 }
 
 .card-container:hover {
@@ -22,6 +23,7 @@
 
 .card-container h4 {
   font-size: 1rem !important;
+  padding-bottom: .66rem;
 }
 
 .image-container {
