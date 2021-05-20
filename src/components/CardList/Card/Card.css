@@ -63,4 +63,6 @@ table {
 .capitalize{
   text-transform: capitalize;
 }
-
+.pad {
+  padding-top: .5rem;
+}
