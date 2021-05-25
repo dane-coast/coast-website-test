@@ -3,13 +3,49 @@ import { CardList } from '../components/CardList/CardList'
 import './Store.css'
 import { SearchBox } from '../components/SearchBox/SearchBox'
 
+
+class StorePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
+      searchField: ''
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value })
+  }
+
+  componentDidMount() {
+    this.setState({ products: products })
+  }
+
+  render() {
+    return (
+      <div className='color-gradient'>
+        <h1>Store Page</h1>
+        <div className="center">
+          <SearchBox
+            placeholder='Search Products'
+            handleChange={this.handleChange}
+          />
+
+        </div>
+        <CardList products={this.state.products} />
+      </div>
+    )
+  }
+}
+
+
 let products = [
   {
     item: "454209-P",
     description: 'Blood Collection Tube K2 EDTA',
     title: 'Lavender top',
     packageQty: 50,
-    category: 'Blood',
+    category: 'Container',
     volume: '4ml',
     dimensions: "13x75",
     image: '/products/454209.jpeg'
@@ -19,7 +55,7 @@ let products = [
     description: 'Red Top with black-ring Serum Clot Activator Serum Tube',
     title: 'Red Top Black-Ring',
     packageQty: 50,
-    category: 'Blood',
+    category: 'Container',
     volume: "9ml",
     dimensions: "16x100",
     image: '/products/455092.jpeg'
@@ -29,7 +65,7 @@ let products = [
     description: 'Green Top with yellow ring Lithium Heparin Tube',
     title: 'Green top',
     packageQty: 50,
-    category: 'Blood',
+    category: 'Container',
     volume: '5ml',
     dimensions: "13x100",
     image: '/products/456087.jpeg'
@@ -39,7 +75,7 @@ let products = [
     description: 'Red Top BD Vacutainer Plus Plastic Serum Tube',
     title: 'Red top',
     packageQty: 100,
-    category: 'Blood',
+    category: 'Container',
     volume: '5ml',
     dimensions: "13x100",
     image: '/products/BD367814.jpeg'
@@ -49,7 +85,7 @@ let products = [
     description: 'Blue Cap Transport Tube',
     title: 'Transport Tube',
     packageQty: 25,
-    category: 'Misc',
+    category: 'Container',
     volume: '10ml',
     dimensions: "13x100",
     image: '/products/SWW3210B.jpeg'
@@ -142,7 +178,7 @@ let products = [
     description: 'Urine Collection Cup. Vacuette w/ integrated transfer device',
     title: 'Urine Collection Cup',
     packageQty: 25,
-    category: 'Urine',
+    category: 'Container',
     volume: "100ml",
     image: '/products/724310.jpeg'
   },
@@ -151,7 +187,7 @@ let products = [
     description: 'No additive Urine Tube 10 ml. Yellow top.',
     title: 'Yellow Top Urine Tube',
     packageQty: 50,
-    category: 'Urine',
+    category: 'Container',
     volume: "10ml",
     dimensions: "16x100",
     image: '/products/455007.jpeg'
@@ -161,7 +197,7 @@ let products = [
     description: 'Sterile Urine Specimen Cup w/ temperature strip (25 per pkg)',
     title: 'Temperature Urine Cup',
     packageQty: 25,
-    category: 'Urine',
+    category: 'Container',
     image: '/products/tnrhxk.jpg'
   },
   {
@@ -169,7 +205,7 @@ let products = [
     description: 'Sterile Urine Transfer Device, individually wrapped.',
     title: 'Urine Transfer Device',
     packageQty: 100,
-    category: 'Urine',
+    category: 'Container',
     image: '/products/CHBIWUS100-C.jpeg'
   },
   {
@@ -177,7 +213,7 @@ let products = [
     description: 'Graduated Specimen Pan. Urine or stool.',
     title: 'Specimen Collector Pan',
     packageQty: 10,
-    category: 'Urine',
+    category: 'Container',
     image: '/products/DYND36600.jpeg'
   },
   {
@@ -205,38 +241,4 @@ let products = [
 
 ]
 
-class StorePage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: [],
-      searchField: ''
-    }
-  }
-
-  handleChange = (e) => {
-    this.setState({ searchField: e.target.value })
-  }
-
-  componentDidMount() {
-    this.setState({ products: products })
-  }
-
-  render() {
-    return (
-      <div className='color-gradient'>
-        <h1>Store Page</h1>
-        <div className="center">
-          <SearchBox
-            placeholder='Search Products'
-            handleChange={this.handleChange}
-          />
-
-        </div>
-        <CardList products={this.state.products} />
-      </div>
-    )
-  }
-
-}
 export default StorePage;

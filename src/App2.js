@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 // import ReactDOM from ‘react-dom’;
 import { BrowserRouter, Route, Redirect, Switch, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux'
 import './css/styles2.css';
 import './css/bulma.css';
 import './css/font.css';
 import MainNavigation from './components/Navigation/MainNavigation';
 import "@fontsource/metropolis";
+
+import { setCurrentUser } from './redux/User/user.action'
 
 import AboutUsPage from './pages/AboutUs';
 import ContactPage from './pages/Contact';
@@ -18,6 +21,7 @@ import Footer from './components/Footer/Footer';
 import NewEntry from './pages/NewEntry';
 import AddNewsBlog from './pages/addNewsBlog';
 import Store from './pages/Store';
+import Store2 from './pages/Store2'
 
 import './App2.css';
 // import Hero from './components/Hero/Hero';
@@ -28,9 +32,12 @@ import Backdrop from './components/Backdrop/Backdrop'
 
 
 class App2 extends React.Component {
-  state = {
-    sideDrawerOpen: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      sideDrawerOpen: false
+    }
+  }
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
@@ -47,6 +54,7 @@ class App2 extends React.Component {
   }
 
   render() {
+    const { currentUser } = this.props
     // let sideDrawer;
     let backdrop;
     // console.log(this.state.sideDrawerOpen)
@@ -79,6 +87,7 @@ class App2 extends React.Component {
                     <Route path="/editnews" component={NewEntry} />
                     <Route path="/addnews" component={AddNewsBlog} />
                     <Route path="/store" component={Store} />
+                    <Route path='/store2' component={Store2} />
                   </Switch>
                 </div>
                 <div className="spacer"></div>
@@ -114,4 +123,12 @@ class App2 extends React.Component {
 //   );
 // }
 
-export default App2;
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App2);
