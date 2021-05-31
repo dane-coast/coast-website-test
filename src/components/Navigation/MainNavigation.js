@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/CoastDiagnosticsLogo.png';
 
+import {connect} from 'react-redux'
 
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 import './MainNavigation.css';
@@ -42,4 +43,12 @@ const MainNavigation = props => (
     </header>   
 )
 
-export default MainNavigation;
+MainNavigation.defaultProps = {
+  currentUser: null
+}
+
+const mapStateToProps = ({ user })=> ({
+  currentUser: user.currentUser
+})
+
+export default connect(mapStateToProps, null)(MainNavigation);

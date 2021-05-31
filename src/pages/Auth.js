@@ -10,21 +10,32 @@ import { NavLink } from 'react-router-dom';
 
 class AuthPage extends Component {
 
-  state = {
-    isLogin: true,
-    backdrop: false,
-    showContacts: false,
-    contacts: '',
-    offset: 0,
-    isLoading: false
-  };
+  // state = {
+  //   isLogin: true,
+  //   backdrop: false,
+  //   showContacts: false,
+  //   contacts: '',
+  //   offset: 0,
+  //   isLoading: false,
+  //   userName: '',
+  //   passWord: ''
+  // };
 
   static contextType = AuthContext;
 
   constructor(props) {
     super(props);
-    this.userNameEl = React.createRef();
-    this.passwordEl = React.createRef();
+
+    this.state = {
+      userName: '',
+      password: '',
+      isLogin: true,
+      backdrop: false,
+      showContacts: false,
+      contacts: '',
+      offset: 0,
+      isLoading: false,
+    };
   }
   switchModeHandler = () => {
     this.setState(prevState => {
@@ -34,6 +45,15 @@ class AuthPage extends Component {
     })
   }
 
+  handleChange = (e) => {
+    console.log(e)
+    const { name, value } = e.target;
+    // console.log(e.target)
+    console.log(name)
+    this.setState({ [name]: value });
+    console.log(this.state[name])
+
+  };
 
   nextHandler = () => {
     let currentOffset = this.state.offset;
@@ -54,57 +74,56 @@ class AuthPage extends Component {
 
   }
 
-  showContactsHandler = () => {
-    console.log(this.state.offset)
-    this.setState({ isLoading: true })
+  // showContactsHandler = () => {
+  //   console.log(this.state.offset)
+  //   this.setState({ isLoading: true })
 
 
-    const requestBody = {
-      query: `
-            query {
-                contacts(limit:5 offset:${this.state.offset}) {
-                  name
-                  userName
-                  message
-                  _id
-                  createdAt
-                }
-              }
-                `
-    };
-    // 'https://mighty-coast-19334.herokuapp.com/graphql'
-    fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
-      method: 'POST',
-      body: JSON.stringify(requestBody),
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(res => {
-        if (res.status !== 200 && res.status !== 210) {
-          throw new Error('Failed')
-        }
-        return res.json();
-      })
-      .then(resData => {
-        console.log('resData')
-        console.log(resData);
-        const contacts = resData.data.contacts
-        this.setState({ contacts: contacts, isLoading: false })
-        this.setState({ backdrop: true })
-        this.setState({ showContacts: true })
-        console.log(this.state.contacts)
-        // this.fetchTests();
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
+  //   const requestBody = {
+  //     query: `
+  //           query {
+  //               contacts(limit:5 offset:${this.state.offset}) {
+  //                 name
+  //                 userName
+  //                 message
+  //                 _id
+  //                 createdAt
+  //               }
+  //             }
+  //               `
+  //   };
+  //   // 'https://mighty-coast-19334.herokuapp.com/graphql'
+  //   fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+  //     method: 'POST',
+  //     body: JSON.stringify(requestBody),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     }
+  //   })
+  //     .then(res => {
+  //       if (res.status !== 200 && res.status !== 210) {
+  //         throw new Error('Failed')
+  //       }
+  //       return res.json();
+  //     })
+  //     .then(resData => {
+  //       console.log('resData')
+  //       console.log(resData);
+  //       const contacts = resData.data.contacts
+  //       this.setState({ contacts: contacts, isLoading: false })
+  //       this.setState({ backdrop: true })
+  //       this.setState({ showContacts: true })
+  //       console.log(this.state.contacts)
+  //       // this.fetchTests();
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }
 
-  submitHandler = (event) => {
+  submitHandler = async (event) => {
     event.preventDefault();
-    const userName = this.userNameEl.current.value;
-    const password = this.passwordEl.current.value;
+    const { userName, password } = this.state;
 
     if (userName.trim().length === 0 || password.trim().length === 0) {
       return;
@@ -121,7 +140,8 @@ class AuthPage extends Component {
                 }
             `
     };
-
+    console.log(this.state.isLogin)
+    console.log(userName)
     if (!this.state.isLogin) {
       requestBody = {
         query: `
@@ -136,7 +156,7 @@ class AuthPage extends Component {
     }
 
 
-    console.log(userName, password);
+    // console.log(userName, password);
 
 
 
@@ -165,11 +185,13 @@ class AuthPage extends Component {
           )
 
         }
+        this.userNameEl.current.value = ''
 
       })
       .catch(err => {
         console.log(err)
       })
+    this.setState({ userName: '', password: '' })
     // ...
   };
 
@@ -184,6 +206,7 @@ class AuthPage extends Component {
 
 
   render() {
+    const { userName, password } = this.state
     return (
       <div>
         {this.state.backdrop && <Backdrop click={this.backdropClickHandler} />}
@@ -194,15 +217,15 @@ class AuthPage extends Component {
         <form className="auth-form" onSubmit={this.submitHandler}>
           <div className="form-control">
             <label htmlFor="userName">User Name</label>
-            <input type="userName" id="userName" ref={this.userNameEl} />
+            <input type="userName" id="userName" value={userName} onChange={this.handleChange} label='UserName' name='userName' required />
           </div>
           <div className="form-control">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" ref={this.passwordEl} />
+            <input type="password" id="password" value={password} onChange={this.handleChange} name='password' label='Password' required />
           </div>
           <div className="form-actions">
             <button type="submit">Submit</button>
-            {/* <button type="button" onClick={this.switchModeHandler}>Switch to {this.state.isLogin ? 'Signup' : 'Login'}</button> */}
+            <button type="button" onClick={this.switchModeHandler}>Switch to {this.state.isLogin ? 'Signup' : 'Login'}</button>
           </div>
         </form>
         {this.state.isLoading && <Spinner />}
