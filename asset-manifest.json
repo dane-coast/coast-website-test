@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/coast-website-test/static/css/main.4bd7ad8b.chunk.css",
-    "main.js": "/coast-website-test/static/js/main.63335071.chunk.js",
-    "main.js.map": "/coast-website-test/static/js/main.63335071.chunk.js.map",
-    "runtime-main.js": "/coast-website-test/static/js/runtime-main.7a316cec.js",
-    "runtime-main.js.map": "/coast-website-test/static/js/runtime-main.7a316cec.js.map",
+    "main.css": "/coast-website-test/static/css/main.eddaca8e.chunk.css",
+    "main.js": "/coast-website-test/static/js/main.54b6e1c0.chunk.js",
+    "main.js.map": "/coast-website-test/static/js/main.54b6e1c0.chunk.js.map",
+    "runtime-main.js": "/coast-website-test/static/js/runtime-main.ed3c1280.js",
+    "runtime-main.js.map": "/coast-website-test/static/js/runtime-main.ed3c1280.js.map",
     "static/css/2.8555ee1f.chunk.css": "/coast-website-test/static/css/2.8555ee1f.chunk.css",
-    "static/js/2.927a8d59.chunk.js": "/coast-website-test/static/js/2.927a8d59.chunk.js",
-    "static/js/2.927a8d59.chunk.js.map": "/coast-website-test/static/js/2.927a8d59.chunk.js.map",
-    "static/js/3.fdf5ab0c.chunk.js": "/coast-website-test/static/js/3.fdf5ab0c.chunk.js",
-    "static/js/3.fdf5ab0c.chunk.js.map": "/coast-website-test/static/js/3.fdf5ab0c.chunk.js.map",
+    "static/js/2.c4c79855.chunk.js": "/coast-website-test/static/js/2.c4c79855.chunk.js",
+    "static/js/2.c4c79855.chunk.js.map": "/coast-website-test/static/js/2.c4c79855.chunk.js.map",
+    "static/js/3.7789a8dc.chunk.js": "/coast-website-test/static/js/3.7789a8dc.chunk.js",
+    "static/js/3.7789a8dc.chunk.js.map": "/coast-website-test/static/js/3.7789a8dc.chunk.js.map",
     "index.html": "/coast-website-test/index.html",
     "static/css/2.8555ee1f.chunk.css.map": "/coast-website-test/static/css/2.8555ee1f.chunk.css.map",
-    "static/css/main.4bd7ad8b.chunk.css.map": "/coast-website-test/static/css/main.4bd7ad8b.chunk.css.map",
-    "static/js/2.927a8d59.chunk.js.LICENSE.txt": "/coast-website-test/static/js/2.927a8d59.chunk.js.LICENSE.txt",
+    "static/css/main.eddaca8e.chunk.css.map": "/coast-website-test/static/css/main.eddaca8e.chunk.css.map",
+    "static/js/2.c4c79855.chunk.js.LICENSE.txt": "/coast-website-test/static/js/2.c4c79855.chunk.js.LICENSE.txt",
     "static/media/CoastDiagnosticsLogo.f7b0d491.png": "/coast-website-test/static/media/CoastDiagnosticsLogo.f7b0d491.png",
     "static/media/CoastTerritoriesMap.6777d622.png": "/coast-website-test/static/media/CoastTerritoriesMap.6777d622.png",
     "static/media/chemistry.9fe6e47e.jpg": "/coast-website-test/static/media/chemistry.9fe6e47e.jpg",
@@ -21,16 +21,16 @@
     "static/media/coagulation.d476ece5.jpg": "/coast-website-test/static/media/coagulation.d476ece5.jpg",
     "static/media/coast-diagnostics-hero.0bda5d10.mp4": "/coast-website-test/static/media/coast-diagnostics-hero.0bda5d10.mp4",
     "static/media/cola.d6704a6f.jpg": "/coast-website-test/static/media/cola.d6704a6f.jpg",
-    "static/media/logo.6ce24c58.svg": "/coast-website-test/static/media/logo.6ce24c58.svg",
     "static/media/index.css": "/coast-website-test/static/media/metropolis-all-400-normal.d6363f82.woff",
     "static/media/testingInAction.69a69c1e.jpg": "/coast-website-test/static/media/testingInAction.69a69c1e.jpg",
+    "static/media/tubes.f4788f0e.webp": "/coast-website-test/static/media/tubes.f4788f0e.webp",
     "static/media/urinalysis-drugscreening.a8ec697d.jpg": "/coast-website-test/static/media/urinalysis-drugscreening.a8ec697d.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7a316cec.js",
+    "static/js/runtime-main.ed3c1280.js",
     "static/css/2.8555ee1f.chunk.css",
-    "static/js/2.927a8d59.chunk.js",
-    "static/css/main.4bd7ad8b.chunk.css",
-    "static/js/main.63335071.chunk.js"
+    "static/js/2.c4c79855.chunk.js",
+    "static/css/main.eddaca8e.chunk.css",
+    "static/js/main.54b6e1c0.chunk.js"
   ]
 }
