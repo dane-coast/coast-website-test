@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class CreateTeam extends React.Component {
+class CreateTeam extends Component {
   constructor(props) {
     super(props);
 

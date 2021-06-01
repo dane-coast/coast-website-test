@@ -10,6 +10,8 @@ import chem from "../assets/chemistry.jpg";
 import drugScreen from '../assets/urinalysis-drugscreening.jpg';
 import ModalTestSearch from '../components/Modal/ModalTestSearch';
 
+const { REACT_APP_BACKEND_LINK } = process.env
+
 class LabServicesPage extends Component {
 
 
@@ -81,7 +83,7 @@ class LabServicesPage extends Component {
             }
                 `
     };
-    fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+    fetch(REACT_APP_BACKEND_LINK, {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
@@ -125,7 +127,7 @@ class LabServicesPage extends Component {
     };
 
     // use fetch to send data -> could also use axios or other
-    fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+    fetch(REACT_APP_BACKEND_LINK, {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {

@@ -22,6 +22,7 @@ import NewEntry from './pages/NewEntry';
 import AddNewsBlog from './pages/addNewsBlog';
 import Store from './pages/Store';
 import Store2 from './pages/Store2'
+import DashboardPage from './pages/Dashboard'
 
 import './App2.css';
 // import Hero from './components/Hero/Hero';
@@ -88,6 +89,7 @@ class App2 extends React.Component {
                     <Route path="/addnews" component={AddNewsBlog} />
                     <Route path="/store" component={Store} />
                     <Route path='/store2' component={Store2} />
+                    <Route path='/dashboard' component={DashboardPage} />
                   </Switch>
                 </div>
                 <div className="spacer"></div>

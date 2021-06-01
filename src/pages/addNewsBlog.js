@@ -4,6 +4,8 @@ import { Editor } from "react-draft-wysiwyg";
 
 import { stateToHTML } from 'draft-js-export-html'
 
+const { REACT_APP_BACKEND_LINK } = process.env
+
 class AddNewsBlog extends Component {
   constructor(props) {
     super(props);
@@ -77,7 +79,7 @@ class AddNewsBlog extends Component {
     // use fetch to send data -> could also use axios or other
     // change this back to heroku  
     //fetch('https://mighty-coast-19334.herokuapp.com/graphql',
-    fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+    fetch(REACT_APP_BACKEND_LINK, {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {

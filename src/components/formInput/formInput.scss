@@ -1,46 +1,93 @@
-.formInput {
-  font-size: 1rem;
+form {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 800;
 
-  .groupContainer {
-    position: relative;
-    margin: 2rem 0;
-    input[type='password']{
-      letter-spacing: 0.3rem
-    }
+
+}
+.form-row {
+  outline: 1px;
+  flex:1;
+  display: grid;
+  grid-template-columns: 20% 20% 35% 20%;
+
+  select {
+    padding: 0 .5rem;
   }
-  .formInputContainer {
-    background: none;
-    background-color: white;
-    // color: ${subColor};
-    font-size: 18px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    // border-bottom: 1px solid ${subColor};
-    margin: 25px 0;
-    height: 50px;
+  .form-btn {
+    background-color: #042464; //#0059aa
+    color: white;
+    border: 1px solid #0059aa;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 2.5rem;
+    // padding: 1.32rem 0;
+    cursor: pointer;
+    height: 80%;
+    font-size: 1rem;
+  }
+  .form-btn:hover {
+    background-color: #0059aa;
+  }
+  .form-search {
+    font-size: 0.8rem;
+    line-height: .9rem;
+    margin: 0 .5rem;
+    padding: 0 .5rem;
+    height: 80%;
+  }
+  .form-input {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    
   
-
-  }
-  .formInputContainer:focus {
-    outline: none
-  }
-  .formInputContainer:focus ~ label {
-    top: -12px;
-    color: orange;
-  }
-
-  .formInputLabel {
-    // color: ${subColor};
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: 300ms ease all;
+    .groupContainer {
+      position: relative;
+      margin: 2rem 0;
+      input[type='password']{
+        letter-spacing: 0.3rem
+      }
+    }
+    .formInputContainer {
+      background: none;
+      background-color: white;
+      // color: ${subColor};
+      font-size: 18px;
+      padding: 10px 10px 10px 5px;
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      // border-bottom: 1px solid ${subColor};
+      margin: 25px 0;
+      height: 50px;
+    
+  
+    }
+  
+    .formInputContainer:focus {
+      outline: none
+    }
+    .formInputContainer:focus ~ label {
+      top: -12px;
+      color: orange;
+    }
+  
+    .formInputLabel {
+      // color: ${subColor};
+      font-size: 16px;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 5px;
+      top: 10px;
+      transition: 300ms ease all;
+    }
   }
 }
 
