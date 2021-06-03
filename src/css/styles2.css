@@ -613,6 +613,87 @@ section.contact-us .contact-container .contact-form form .columns .column{
 div.column.is-half {
     text-align: center !important;
 }
+
+.smaller {
+  font-size: 0.85rem;
+}
+
+.small {
+  font-size: 0.91rem;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.big {
+  font-size: 1.1rem;
+}
+
+.bigger {
+  font-size: 1.25rem;
+}
+
+.large {
+  font-size: 1.75rem;
+}
+.huge {
+  font-size: 2.5rem;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.clickable {
+  cursor: pointer;
+  border-radius: 16px;
+}
+.clickable:hover {
+  background: #BBE5F3;
+}
+
+.tooltip {
+  position: relative;
+  /* display: inline-block;
+  border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.no-border {
+  border: none !important;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  /* border-style: solid; */
+  /* border-color: #555 transparent transparent transparent; */
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
 @media only screen and (max-width: 768px) {
     #coast-body .lab-page {
         flex-wrap: wrap;

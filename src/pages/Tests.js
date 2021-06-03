@@ -57,7 +57,7 @@ class TestsPage extends Component {
             }
             `
     };
-    fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+    fetch(REACT_APP_BACKEND_LINK, {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
@@ -101,7 +101,7 @@ class TestsPage extends Component {
     };
 
     // use fetch to send data -> could also use axios or other
-    fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+    fetch(REACT_APP_BACKEND_LINK, {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {

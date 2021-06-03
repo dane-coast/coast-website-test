@@ -8,6 +8,8 @@ import Spinner from '../components/Spinner/Spinner';
 
 import { NavLink } from 'react-router-dom';
 
+const { REACT_APP_BACKEND_LINK } = process.env
+
 class AuthPage extends Component {
 
   // state = {
@@ -74,52 +76,51 @@ class AuthPage extends Component {
 
   }
 
-  // showContactsHandler = () => {
-  //   console.log(this.state.offset)
-  //   this.setState({ isLoading: true })
+  showContactsHandler = () => {
+    console.log(this.state.offset)
+    this.setState({ isLoading: true })
 
 
-  //   const requestBody = {
-  //     query: `
-  //           query {
-  //               contacts(limit:5 offset:${this.state.offset}) {
-  //                 name
-  //                 userName
-  //                 message
-  //                 _id
-  //                 createdAt
-  //               }
-  //             }
-  //               `
-  //   };
-  //   // 'https://mighty-coast-19334.herokuapp.com/graphql'
-  //   fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
-  //     method: 'POST',
-  //     body: JSON.stringify(requestBody),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     }
-  //   })
-  //     .then(res => {
-  //       if (res.status !== 200 && res.status !== 210) {
-  //         throw new Error('Failed')
-  //       }
-  //       return res.json();
-  //     })
-  //     .then(resData => {
-  //       console.log('resData')
-  //       console.log(resData);
-  //       const contacts = resData.data.contacts
-  //       this.setState({ contacts: contacts, isLoading: false })
-  //       this.setState({ backdrop: true })
-  //       this.setState({ showContacts: true })
-  //       console.log(this.state.contacts)
-  //       // this.fetchTests();
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }
+    const requestBody = {
+      query: `
+            query {
+                contacts(limit:5 offset:${this.state.offset}) {
+                  name
+                  message
+                  _id
+                  createdAt
+                }
+              }
+                `
+    };
+    // 'https://mighty-coast-19334.herokuapp.com/graphql'
+    fetch(REACT_APP_BACKEND_LINK, {
+      method: 'POST',
+      body: JSON.stringify(requestBody),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(res => {
+        if (res.status !== 200 && res.status !== 210) {
+          throw new Error('Failed')
+        }
+        return res.json();
+      })
+      .then(resData => {
+        console.log('resData')
+        console.log(resData);
+        const contacts = resData.data.contacts
+        this.setState({ contacts: contacts, isLoading: false })
+        this.setState({ backdrop: true })
+        this.setState({ showContacts: true })
+        console.log(this.state.contacts)
+        // this.fetchTests();
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   submitHandler = async (event) => {
     event.preventDefault();
@@ -161,7 +162,7 @@ class AuthPage extends Component {
 
 
     // use fetch to send data -> could also use axios or other
-    fetch('https://mighty-coast-19334.herokuapp.com/graphql', {
+    fetch(REACT_APP_BACKEND_LINK, {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {

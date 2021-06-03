@@ -1,24 +1,24 @@
 import React, { Fragment } from 'react';
 
 import './formInput.scss';
+import SearchInput from './searchInput'
 
 
 const FormInput = ({ handleChange, label, formHelper, searchbox, ...props }) => {
-  return (
-    <div className="form-row">
-      {label && (
-        <label>
-          {label}
-        </label>
-      )}
-      <input type="text" className="form-input" onChange={handleChange} {...props} />
-      {formHelper && searchbox && (
-        <Fragment>
-          <div className="form-btn form-helper" onClick={formHelper}>{props.helpertext}</div>
-          <input className='form-search' type="text" placeholder={searchbox}></input>
-        </Fragment>
 
-      )}
+  return (
+    <div>
+      <div className="form-row">
+        {label && (
+          <label>
+            {label}
+          </label>
+        )}
+        <input type="text" className="form-input" onChange={handleChange} {...props} />
+        {formHelper && searchbox && (
+          <div className="form-btn form-helper" onClick={formHelper}>{props.helpertext}</div>
+        )}
+      </div>
     </div>
   )
 };
